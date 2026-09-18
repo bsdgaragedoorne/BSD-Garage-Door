@@ -8,7 +8,7 @@ const encode = (data) =>
     .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
     .join('&');
 
-const empty = { name: '', phone: '', email: '', address: '', service: '', date: '', message: '' };
+const empty = { name: '', phone: '', email: '', address: '', service: '', message: '' };
 
 /**
  * Posts to Netlify Forms. The matching static form lives in
@@ -58,7 +58,6 @@ export default function LeadForm({
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(values.email)) e.email = 'Enter a valid email address.';
     if (!contact && values.address.trim().length < 4) e.address = 'Enter the address where the door is.';
     if (!values.service) e.service = 'Choose the service you need.';
-    if (!compact && values.message.trim().length < 5) e.message = 'Tell us briefly what the door is doing.';
     return e;
   };
 
@@ -109,7 +108,7 @@ export default function LeadForm({
           email: 'Your email *',
           phone: 'Phone number *',
           address: 'Address *',
-          message: 'Describe the problem *',
+          message: 'Describe the problem',
         }
       : {
           name: 'John Doe',
@@ -306,24 +305,7 @@ export default function LeadForm({
               {errors.address && <span className="field__error">{errors.address}</span>}
             </div>
           </div>
-          <div className={bare ? 'field-row field-row--2' : undefined}>
-            {serviceField}
-            {bare && (
-              <div className={fieldClass('date')}>
-                <label className={lab} htmlFor={`${formName}-date`}>
-                  Preferred date
-                </label>
-                <input
-                  id={`${formName}-date`}
-                  name="date"
-                  type="date"
-                  value={values.date}
-                  onChange={set('date')}
-                  min={new Date().toISOString().slice(0, 10)}
-                />
-              </div>
-            )}
-          </div>
+          {serviceField}
         </>
       )}
 
