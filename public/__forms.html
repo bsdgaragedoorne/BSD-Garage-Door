@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><title>Form detection</title><meta name="robots" content="noindex" /></head>
+  <body>
+    <!--
+      Netlify parses this static file at build time to register the forms.
+      A React SPA renders its forms in JavaScript, which Netlify's build-time
+      crawler never sees — without this file, submissions are silently lost.
+      Field names here MUST match the inputs in src/components/LeadForm.jsx.
+    -->
+    <form name="free-estimate" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="free-estimate" />
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="phone" />
+      <input name="email" />
+      <input name="address" />
+      <input name="service" />
+      <input name="date" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="phone" />
+      <input name="email" />
+      <input name="address" />
+      <input name="service" />
+      <input name="date" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

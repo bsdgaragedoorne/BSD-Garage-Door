@@ -1,0 +1,8 @@
+# The site ships as index pages only - individual service and city pages were
+# not part of the build, so anything pointing at them folds up one level.
+/services/*        /services       301
+/service-areas/*   /service-areas  301
+
+# Prerendered pages are real files and are served directly.
+# Anything genuinely missing falls through to the 404 page.
+/*  /404.html  404

@@ -1,0 +1,707 @@
+/* ==========================================================================
+   LIGHT THEME
+   Cream paper, dark type, copper accents. The hero and interior pageheads
+   stay photographic so the site still reads as the original layout.
+   ========================================================================== */
+
+:root {
+  --paper: #ffffff;
+  --chalk: #f4f4f4;
+  --line-light: rgba(0, 0, 0, 0.1);
+  --text-body: #4a4a4a;
+  --text-dark: #111111;
+}
+
+body { background: #fff; color: var(--text-body); }
+
+/* --- Top bar + header --------------------------------------------------- */
+
+.topbar {
+  background: #efebe4;
+  color: #6a6358;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.topbar a:hover { color: var(--accent); }
+
+.header {
+  background: rgba(251, 248, 244, 0.96);
+  border-bottom: 1px solid var(--line-light);
+}
+
+.header.is-stuck {
+  background: rgba(251, 248, 244, 0.98);
+  box-shadow: 0 12px 34px -24px rgba(20, 18, 14, 0.35);
+}
+
+.nav a { color: var(--text-dark); }
+.nav a:hover,
+.nav a.is-active { color: var(--accent); }
+
+.phone-pill { color: var(--text-dark); }
+
+.header__rule { background: var(--line-light); }
+
+/* The drawer stays dark - it sits over the page as an overlay */
+.drawer { background: #0b1017; }
+
+/* --- Interior page headers: photographic band, matching the hero -------- */
+
+.pagehead {
+  background: #1b1814;
+  color: #d8d0c6;
+  border-bottom: none;
+}
+
+.pagehead::after { display: none; }
+
+.pagehead::before {
+  display: block;
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(105deg, rgba(22, 16, 12, 0.78) 0%, rgba(48, 28, 16, 0.62) 42%, rgba(196, 92, 38, 0.42) 100%),
+    url('/img/pagehead-1600.webp') center 58% / cover no-repeat;
+}
+
+@media (max-width: 1100px) {
+  .pagehead::before {
+    background-image:
+      linear-gradient(105deg, rgba(22, 16, 12, 0.78) 0%, rgba(48, 28, 16, 0.62) 42%, rgba(196, 92, 38, 0.42) 100%),
+      url('/img/pagehead-1100.webp');
+  }
+}
+
+@media (max-width: 760px) {
+  .pagehead::before {
+    background-image:
+      linear-gradient(180deg, rgba(22, 16, 12, 0.72), rgba(196, 92, 38, 0.4)),
+      url('/img/pagehead-760.webp');
+  }
+}
+
+.pagehead h1 { color: #fff; }
+.pagehead .lede { color: #d8d0c6; }
+
+.crumbs { color: #b8aea2; }
+.crumbs a { color: inherit; }
+.crumbs a:hover { color: #fff; }
+.crumbs span[aria-current] { color: var(--volt-soft); }
+
+.pagehead .btn--ghost-light {
+  --btn-fg: #fff;
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
+.pagehead .btn--ghost-light:hover {
+  --btn-fg: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.pagehead {
+  position: relative;
+  overflow: hidden;
+}
+
+.pagehead .wrap { position: relative; z-index: 1; }
+
+.btn--ghost-light {
+  --btn-fg: var(--text-dark);
+  border-color: var(--line-light);
+}
+
+.btn--ghost-light:hover {
+  border-color: var(--accent);
+  background: rgba(196, 92, 38, 0.05);
+  color: var(--accent);
+}
+
+/* --- Contact / appointment band ----------------------------------------- */
+
+.book { background: #f3efe8; }
+
+/* Near-white panel: the earlier grey-blue gradient plus a heavy drop-shadow
+   made the van read as though it had a dark overlay on it. */
+.book--flip .book__media {
+  background:
+    radial-gradient(70% 55% at 50% 46%, rgba(196, 92, 38, 0.06), transparent 70%),
+    #fbfcfe;
+  border-right: 1px solid var(--line-light);
+}
+
+/* A faint ground shadow only - no tint over the vehicle itself */
+.book__van::before {
+  background: radial-gradient(closest-side, rgba(9, 18, 33, 0.14), transparent 74%);
+  height: 16%;
+  bottom: 2%;
+  filter: blur(14px);
+}
+
+.book__van img { filter: drop-shadow(0 10px 14px rgba(9, 18, 33, 0.14)); }
+
+.book__vanNote { color: #6a7484; }
+
+.book__body h2 { color: var(--text-dark); }
+
+/* Form fields on light surfaces */
+.form--bare .field input,
+.form--bare .field textarea,
+.form--bare .sel__btn {
+  background: #fff;
+  border: 1px solid var(--line-light);
+  color: var(--text-dark);
+}
+
+.form--bare .field input::placeholder,
+.form--bare .field textarea::placeholder { color: #8b95a5; }
+
+.form--bare .sel__btn.is-placeholder { color: #8b95a5; }
+.form--bare .sel__btn svg { color: #6a7484; }
+
+.form--bare input[type='date'] { color-scheme: light; }
+
+.form--bare input[type='date']::-webkit-calendar-picker-indicator {
+  filter: none;
+  opacity: 0.55;
+}
+
+.form--bare .form__note { color: #6a7484; }
+.form--bare .form__note a { color: var(--accent); }
+
+/* Portalled select list */
+.sel__list {
+  background: #fff;
+  border-color: rgba(196, 92, 38, 0.4);
+  box-shadow: 0 26px 60px -24px rgba(9, 18, 33, 0.35);
+}
+
+.sel__list li { color: var(--text-body); }
+.sel__list li.is-active { background: rgba(196, 92, 38, 0.1); color: var(--accent); }
+.sel__list li.is-selected { color: var(--text-dark); }
+
+/* --- Why choose us ------------------------------------------------------- */
+
+.why { background: #fff; }
+.why__stat { background: rgba(9, 18, 33, 0.72); }
+
+/* --- Dark utility sections become light --------------------------------- */
+
+.section--dark {
+  background: #f2f5fa;
+  color: var(--text-body);
+}
+
+.section--dark h1,
+.section--dark h2,
+.section--dark h3,
+.section--dark h4,
+.section--dark strong { color: var(--text-dark); }
+
+.section--dark .lede { color: var(--text-body); }
+.section--dark .eyebrow { color: var(--accent); }
+
+.formpanel {
+  background: #fff;
+  border-color: var(--line-light);
+  box-shadow: 0 24px 60px -34px rgba(9, 18, 33, 0.35);
+}
+
+.formpanel h3 { color: var(--text-dark); }
+.formpanel__intro { color: #6a7484; }
+
+.field label { color: #6a7484; }
+
+.field input,
+.field select,
+.field textarea {
+  background: #fff;
+  border-color: var(--line-light);
+  color: var(--text-dark);
+}
+
+.field input::placeholder,
+.field textarea::placeholder { color: #8b95a5; }
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus { background-color: rgba(196, 92, 38, 0.04); }
+
+.form__note { color: #6a7484; }
+
+.sel__btn { background: #fff; border-color: var(--line-light); color: var(--text-dark); }
+.sel__btn.is-placeholder { color: #8b95a5; }
+
+/* --- Map ---------------------------------------------------------------- */
+
+.mapsec { background: #eef2f7; border-top: 1px solid var(--line-light); }
+
+/* Light greyscale rather than a darkened map */
+.mapsec iframe { filter: grayscale(1) contrast(0.95) brightness(1.02); }
+
+.mapsec__card {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--line-light);
+  border-left: 3px solid var(--accent);
+  box-shadow: 0 22px 50px -26px rgba(9, 18, 33, 0.4);
+}
+
+.mapsec__card strong { color: var(--text-dark); }
+.mapsec__card span { color: #6a7484; }
+.mapsec__card a { color: var(--accent); }
+.mapsec__card a:hover { color: var(--accent-deep); }
+
+/* --- Footer -------------------------------------------------------------- */
+
+.footer {
+  background: #efebe4;
+  color: #5c564c;
+  border-top: 3px solid var(--accent);
+}
+
+.footer h4 { color: var(--text-dark); }
+.footer a:hover { color: var(--accent); }
+.footer__nap a { color: var(--text-dark); }
+.footer__nap strong { color: var(--text-dark) !important; }
+.footer__bar { border-top-color: var(--line-light); color: #7a7368; }
+.footer__addr:hover { color: var(--accent); }
+
+/* --- Small surfaces ------------------------------------------------------ */
+
+.trustbar { background: #f3efe8; border-color: var(--line-light); }
+.trustbar__cell { border-color: var(--line-light); }
+.trustbar__value { color: var(--text-dark); }
+.trustbar__label,
+.trustbar__note { color: #7b8698; }
+
+.seam { border-color: var(--line-light); }
+
+.faqsec { background: #f7f9fc; }
+.gallerysec { background: #f2f5fa; }
+.svsection { background: #fff; }
+.areasec { background: #f7f9fc; }
+
+/* Steps / process blocks that used the dark palette */
+.step { background: #fff; border: 1px solid var(--line-light); }
+.step h3 { color: var(--text-dark); }
+.step p { color: var(--text-body); }
+.steps { background: transparent; border: none; gap: 1rem; }
+
+/* --- Lightbox stays dark: it is a viewer, not a page surface ------------ */
+
+.lightbox { background: rgba(9, 14, 22, 0.94); }
+
+/* --- Estimate modal ------------------------------------------------------ */
+
+.modal { background: #fff; border-color: var(--line-light); }
+.modal h2 { color: var(--text-dark); }
+.modal__sub { color: #6a7484; }
+
+.modal__close {
+  background: rgba(9, 18, 33, 0.06);
+  border-color: var(--line-light);
+  color: var(--text-dark);
+}
+
+.modal__close:hover { background: rgba(9, 18, 33, 0.12); }
+
+.form-status { background: rgba(196, 92, 38, 0.06); color: var(--text-body); }
+.form-status h3 { color: var(--text-dark); }
+
+/* --- Ghost buttons: colour follows the surface -------------------------- */
+
+.btn--ghost-light {
+  --btn-bg: transparent;
+  --btn-fg: var(--text-dark);
+  border-color: rgba(9, 18, 33, 0.16);
+  border-width: 1.5px;
+}
+
+.btn--ghost-light:hover {
+  --btn-fg: var(--accent);
+  border-color: var(--accent);
+  background: rgba(196, 92, 38, 0.05);
+  box-shadow: none;
+}
+
+/* The hero is the one dark surface left, so it keeps light-on-dark buttons */
+.chero .btn--ghost-light {
+  --btn-fg: #fff;
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.chero .btn--ghost-light:hover {
+  --btn-fg: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* The CTA band is solid blue and keeps white outline buttons */
+.ctaband .btn--ghost,
+.ctaband .btn--ghost-light {
+  --btn-fg: #fff;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.ctaband .btn--ghost:hover,
+.ctaband .btn--ghost-light:hover {
+  --btn-fg: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Drawer sits over the page as a dark overlay */
+.drawer .btn--ghost-light { --btn-fg: #fff; border-color: rgba(255, 255, 255, 0.3); }
+
+/* --- Video hero ---------------------------------------------------------- */
+
+.chero--video .fxbg video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.chero--video .chero__scrim {
+  background:
+    linear-gradient(100deg, rgba(18, 14, 12, 0.9) 0%, rgba(18, 14, 12, 0.78) 36%, rgba(18, 14, 12, 0.28) 62%, rgba(18, 14, 12, 0.12) 100%),
+    linear-gradient(to top, rgba(18, 14, 12, 0.4) 0%, transparent 48%);
+}
+
+/* Badge sits under the buttons now that the door cutout is gone */
+.chero--video .fxfloat {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.75rem;
+  animation: fxup 0.9s var(--expo) both 0.45s;
+}
+
+@media (max-width: 999px) {
+  .chero--video { min-height: 0; }
+  .chero--video .chero__inner { padding-block: clamp(3rem, 9vw, 4.5rem); }
+}
+
+/* --- Contact page: hours table on a light surface ----------------------- */
+
+.hourstable th,
+.hourstable td { border-bottom-color: var(--line-light); }
+
+.hourstable th { color: var(--text-body); }
+.hourstable td { color: var(--text-dark); }
+.hourstable td.is-closed { color: #8b95a5; }
+
+/* --- Blue estimate panel ------------------------------------------------ */
+
+.formpanel--blue {
+  background: linear-gradient(155deg, var(--accent) 0%, #8f3d14 62%, #1b2430 100%);
+  border: none;
+  box-shadow: 0 30px 70px -34px rgba(0, 40, 160, 0.7);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.formpanel--blue h3 { color: #fff; }
+.formpanel--blue .formpanel__intro { color: rgba(255, 255, 255, 0.78); }
+
+.formpanel--blue .field label { color: rgba(255, 255, 255, 0.72); }
+
+.formpanel--blue .field input,
+.formpanel--blue .field textarea,
+.formpanel--blue .sel__btn {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #fff;
+}
+
+.formpanel--blue .field input::placeholder,
+.formpanel--blue .field textarea::placeholder,
+.formpanel--blue .sel__btn.is-placeholder { color: rgba(255, 255, 255, 0.6); }
+
+.formpanel--blue .field input:focus,
+.formpanel--blue .field textarea:focus,
+.formpanel--blue .sel.is-open .sel__btn {
+  border-color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.formpanel--blue .sel__btn svg { color: rgba(255, 255, 255, 0.8); }
+
+/* Solid white submit reads strongest on a saturated panel */
+.formpanel--blue .btn--volt {
+  background: #fff;
+  border-color: #fff;
+  color: var(--accent);
+  box-shadow: 0 14px 30px -16px rgba(0, 0, 0, 0.5);
+}
+
+.formpanel--blue .btn--volt:hover { background: #f8eee8; color: var(--accent-deep); }
+
+.formpanel--blue .form__note { color: rgba(255, 255, 255, 0.72); }
+.formpanel--blue .form__note a { color: #fff; }
+
+.formpanel--blue .field__error { color: #ffd0cb; }
+
+.formpanel--blue .form-status {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.formpanel--blue .form-status h3 { color: #fff; }
+
+/* Focus ring needs contrast against the blue */
+.formpanel--blue :focus-visible { outline-color: #fff; }
+
+/* .pagehead--areas also carries .pagehead, so it picks up the photo from the
+   base rule. An explicit override here only wiped the image. */
+
+/* Closed-state dot in the top bar */
+.pulse--off { background: #8b95a5; animation: none; box-shadow: none; }
+
+/* --- Lightbox navigation ------------------------------------------------ */
+
+.lightbox__nav {
+  position: fixed;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 4;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s var(--expo), transform 0.3s var(--expo);
+}
+
+body.has-cursor .lightbox__nav { cursor: none; }
+
+.lightbox__nav:hover { background: var(--accent); border-color: var(--accent); }
+.lightbox__nav--prev { left: clamp(0.75rem, 3vw, 2.5rem); }
+.lightbox__nav--next { right: clamp(0.75rem, 3vw, 2.5rem); }
+.lightbox__nav--prev:hover { transform: translateX(-3px); }
+.lightbox__nav--next:hover { transform: translateX(3px); }
+
+@media (max-width: 620px) {
+  .lightbox__nav { width: 42px; height: 42px; top: auto; bottom: 1.25rem; translate: 0 0; }
+  .lightbox__nav--prev { left: 1.25rem; }
+  .lightbox__nav--next { right: 1.25rem; }
+}
+
+/* --- Service cards without photography ---------------------------------- */
+
+/* Services without a photograph keep a tinted panel at the same proportions,
+   so card heights stay uniform across the row. */
+.svcard__media--flat {
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(75% 120% at 50% 0%, rgba(196, 92, 38, 0.16), transparent 70%),
+    linear-gradient(160deg, #eaf0fb, #f7f9fd);
+  border-bottom: 1px solid var(--line-light);
+}
+
+.svgrid { gap: 1.25rem; }
+
+/* The home page uses the looping rail; the services page keeps a static grid */
+.svgrid .svcard { flex: none; }
+.svtrack .svcard { flex: 0 0 clamp(258px, 74vw, 340px); }
+
+
+/* --- Inline phone links read as tappable, not as body text -------------- */
+
+.areanote a,
+.faqsec a[href^='tel:'],
+.prose a[href^='tel:'] {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(196, 92, 38, 0.28);
+  transition: color 0.25s var(--expo), border-color 0.25s var(--expo);
+}
+
+.areanote a:hover,
+.faqsec a[href^='tel:']:hover,
+.prose a[href^='tel:']:hover {
+  color: var(--accent-deep);
+  border-color: var(--accent);
+}
+
+/* --- Projects gallery: mixed-width mosaic ------------------------------- */
+
+.projsec { background: #f7f9fc; }
+
+.projgrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: 1fr;
+}
+
+.projcard button {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: zoom-in;
+  transition: transform 0.55s var(--expo), box-shadow 0.55s var(--expo);
+}
+
+body.has-cursor .projcard button { cursor: none; }
+
+.projcard button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 54px -28px rgba(4, 16, 44, 0.5);
+}
+
+.projcard img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.9s var(--expo);
+}
+
+.projcard button:hover img { transform: scale(1.05); }
+
+/* Caption sits on the image, over a scrim that only darkens the lower edge */
+.projcard__cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 2.75rem 1.1rem 1rem;
+  background: linear-gradient(to top, rgba(6, 12, 24, 0.82) 0%, rgba(6, 12, 24, 0.45) 45%, transparent 100%);
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 620px) {
+  .projgrid { grid-template-columns: repeat(12, 1fr); }
+
+  /* Span set per item in the component so each row fills the full width */
+  .projcard {
+    grid-column: span var(--span, 4);
+    /* Height follows width, so every tile in a row lands on the same height
+       while a 4-span tile keeps the photo's native 4:3 with no cropping.
+       A fixed row height was squeezing the wide tiles into a letterbox. */
+    aspect-ratio: var(--span, 4) / 3;
+  }
+
+  .projcard img { aspect-ratio: auto; }
+}
+
+
+/* --- Nav: never wrap a label onto two lines ----------------------------- */
+/* Adding Projects made the bar tight enough that "Service Areas" broke over
+   two lines. Labels are held on one line and the surrounding elements give up
+   a little width instead. */
+
+.nav a { white-space: nowrap; }
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .nav { gap: 0; }
+  .nav a { padding-inline: 0.7rem; font-size: 0.9rem; letter-spacing: 0.05em; }
+  .phone-pill { font-size: 0.92rem; gap: 0.5rem; }
+  .phone-pill__badge { width: 38px; height: 38px; }
+  .header__cta .btn { padding: 1.1rem 1.3rem; font-size: 0.75rem; }
+  .brand img { height: 86px; }
+}
+
+@media (min-width: 1440px) {
+  .nav a { padding-inline: 0.8rem; }
+}
+
+/* Poster sits under the video; the video fades in once it is ready */
+.chero--video .fxbg .fxposter {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+}
+
+.chero--video .fxbg video {
+  z-index: 1;
+  animation: fade 0.6s var(--expo) both;
+}
+
+/* --- Footer: contrast and heading semantics ----------------------------- */
+/* Column labels are navigation, not document structure, so they are styled
+   paragraphs rather than <h4> - which was skipping a heading level. */
+
+.footer__h {
+  font-family: var(--display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  margin: 0 0 1rem;
+}
+
+.footer__h a { color: inherit; }
+.footer__h a:hover { color: var(--accent); }
+
+.footer { color: #5c564c; }
+.footer a { color: #3f3a34; }
+.footer__bar { color: #7a7368; }
+.footer li { color: #5c564c; }
+
+/* --- Composited animations only ----------------------------------------- */
+/* The reveal transition animated `filter`, which cannot be composited and
+   forces paint work on every frame. Opacity and transform are enough. */
+
+.reveal {
+  filter: none !important;
+  clip-path: none !important;
+}
+
+.pulse {
+  box-shadow: none;
+  animation: pulseScale 2.4s ease-in-out infinite;
+}
+
+@keyframes pulseScale {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.55; }
+}
+
+/* --- Marquee rails: transform-driven, not scroll-driven ----------------- */
+
+.svrail,
+.gallery {
+  overflow: hidden;
+  /* Vertical page scrolling still works; horizontal drag is ours */
+  touch-action: pan-y;
+}
+
+.svtrack,
+.gallery__track {
+  will-change: transform;
+  /* Kept off the main thread so the drift cannot be blocked by layout work */
+  backface-visibility: hidden;
+}
