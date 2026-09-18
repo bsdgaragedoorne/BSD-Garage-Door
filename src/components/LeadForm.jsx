@@ -72,10 +72,14 @@ export default function LeadForm({
     }
     setState('sending');
     try {
-      const res = await fetch('/__forms.html', {
+      const payload = { 'form-name': formName, 'bot-field': '' };
+      Object.entries(values).forEach(([k, v]) => {
+        if (String(v).trim()) payload[k] = v;
+      });
+      const res = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': formName, 'bot-field': '', ...values }),
+        body: encode(payload),
       });
       // fetch only rejects on a network failure, so a 404 or 501 still lands
       // here. Without this check the form reported success locally, where
@@ -171,12 +175,15 @@ export default function LeadForm({
       name={formName}
       onSubmit={submit}
       noValidate
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
       className={contact ? 'form--contact' : bare ? 'form--bare' : compact ? 'form--modal' : undefined}
     >
       <input type="hidden" name="form-name" value={formName} />
-      <p className="hp">
+      <p className="hp" aria-hidden="true">
         <label>
-          Do not fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+          Leave blank
+          <input name="bot-field" tabIndex={-1} autoComplete="off" />
         </label>
       </p>
 
