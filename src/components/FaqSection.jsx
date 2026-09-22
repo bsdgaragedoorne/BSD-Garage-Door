@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import Reveal from './Reveal.jsx';
 import { homeFaqs } from '../data/site.js';
 
-export default function FaqSection() {
+export default function FaqSection({ items = homeFaqs, eyebrow, title }) {
   const listRef = useRef(null);
 
   // <details name="..."> would do this natively, but support is still recent
@@ -20,16 +20,20 @@ export default function FaqSection() {
         <Reveal className="faqsec__body">
           <div className="why__eyebrow">
             <i />
-            Common questions
+            {eyebrow || 'Common questions'}
             <i />
           </div>
 
           <h2>
-            Find answers to the most common <span className="accent">customer queries</span>
+            {title || (
+              <>
+                Find answers to the most common <span className="accent">customer queries</span>
+              </>
+            )}
           </h2>
 
           <div className="faqcards" ref={listRef}>
-            {homeFaqs.map((f, i) => (
+            {items.map((f, i) => (
               <Reveal key={f.q} delay={Math.min(i, 4) * 70}>
                 <details open={i === 0} onToggle={closeSiblings}>
                   <summary>

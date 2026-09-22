@@ -22,6 +22,7 @@ export default function HeroSlider() {
           srcSet="/img/hero-day-560.webp 560w, /img/hero-day-860.webp 860w, /img/hero-day-1280.webp 1280w"
           sizes="100vw"
           alt="White raised-panel garage door on a Franklin-area home in daylight"
+          title="Garage Door Repair in Franklin, MA"
           width="1280"
           height="720"
           fetchpriority="high"
@@ -35,16 +36,15 @@ export default function HeroSlider() {
           <div className="fxeyebrow">Franklin garage door specialists</div>
           <h1 className="lines is-in">
             <span className="line">
-              <span>Garage door down?</span>
+              <span>Garage Door Repair</span>
             </span>
             <span className="line">
-              <span className="accent">We&rsquo;re on it.</span>
+              <span className="accent">in Franklin</span>
             </span>
           </h1>
           <p className="chero__sub">
-            Fast, professional garage door repair throughout Franklin and MetroWest. From broken
-            springs and faulty openers to off-track doors, we get your garage door working safely again -
-            often the same night.
+            Get fast, professional Garage Door Repair in Franklin, from broken springs and faulty
+            openers to off-track doors, often fixed the same night.
           </p>
           <div className="btn-row" style={{ marginTop: 0 }}>
             <a href={biz.phoneHref} className="btn btn--fx">

@@ -36,6 +36,7 @@ export default function Footer() {
                 srcSet="/img/logo-240.webp 240w, /img/logo-440.webp 440w"
                 sizes="180px"
                 alt={biz.name}
+                title={biz.name}
                 width="440"
                 height="304"
                 loading="lazy"

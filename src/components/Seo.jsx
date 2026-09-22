@@ -7,8 +7,10 @@ export const headStore = { current: null };
 
 const isServer = typeof window === 'undefined';
 
-function buildTags({ title, description, path, image, noindex, schema, breadcrumbs }) {
-  const canonical = SITE_URL + (path === '/' ? '/' : path.replace(/\/$/, ''));
+function buildTags({ title, description, path, image, noindex, schema, breadcrumbs, canonicalUrl }) {
+  // A page may pin an explicit canonical (e.g. a different production domain);
+  // otherwise it is derived from SITE_URL + path.
+  const canonical = canonicalUrl || SITE_URL + (path === '/' ? '/' : path.replace(/\/$/, ''));
   const img = SITE_URL + (image || '/img/og-image.jpg');
   const tags = [
     { name: 'description', content: description },
@@ -48,12 +50,9 @@ export function renderHeadToString(head) {
     else if (t.property) parts.push(`<meta property="${t.property}" content="${esc(t.content)}" />`);
     else parts.push(`<meta name="${t.name}" content="${esc(t.content)}" />`);
   }
-  const blocks = [head.schema, head.breadcrumbs].filter(Boolean);
-  for (const b of blocks) {
-    parts.push(
-      `<script type="application/ld+json">${JSON.stringify(b).replace(/</g, '\\u003c')}</script>`
-    );
-  }
+  // JSON-LD schema output is intentionally disabled - custom schema will be
+  // added separately. `head.schema` / `head.breadcrumbs` are still accepted but
+  // never emitted, so the site renders no structured data.
   return parts.join('\n    ');
 }
 
@@ -76,13 +75,7 @@ function applyToDocument(head) {
     el.setAttribute('data-seo', '');
     frag.appendChild(el);
   }
-  for (const b of [head.schema, head.breadcrumbs].filter(Boolean)) {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.textContent = JSON.stringify(b);
-    s.setAttribute('data-seo', '');
-    frag.appendChild(s);
-  }
+  // JSON-LD schema output intentionally disabled (see renderHeadToString).
   document.head.appendChild(frag);
 }
 

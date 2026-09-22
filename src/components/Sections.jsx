@@ -48,6 +48,7 @@ export function AboutIntro() {
               srcSet="/img/van-clean-520.webp 520w, /img/van-clean-780.webp 780w, /img/van-clean-1040.webp 1040w"
               sizes="(min-width: 1000px) 38vw, 86vw"
               alt="BSD Garage Door service van signed with the company logo and phone number 843-279-3345"
+              title="BSD Garage Door service van in Franklin, MA"
               width="1040"
               height="607"
               loading="lazy"
@@ -139,32 +140,44 @@ export function TrustMarquee() {
   );
 }
 
-export function AboutBlock() {
-  const cards = [
-    {
-      icon: ShieldPlain,
-      title: 'Licensed & Insured',
-      body: 'Your property is in safe hands with our fully licensed and insured team.',
-    },
-    {
-      icon: Clock,
-      title: '24-Hour Service',
-      body: "We're here when you need us, with fast response times day or night.",
-    },
-    {
-      icon: Gear,
-      title: 'Expert Workmanship',
-      body: 'High-quality repairs and installations built to last.',
-    },
-    {
-      icon: People,
-      title: 'Local & Trusted',
-      body: 'A locally owned business proudly serving our community with honest, reliable service.',
-    },
-  ];
+const aboutDefaultCards = [
+  {
+    icon: ShieldPlain,
+    title: 'Licensed & Insured',
+    body: 'Your property is in safe hands with our fully licensed and insured team.',
+  },
+  {
+    icon: Clock,
+    title: '24-Hour Service',
+    body: "We're here when you need us, with fast response times day or night.",
+  },
+  {
+    icon: Gear,
+    title: 'Expert Workmanship',
+    body: 'High-quality repairs and installations built to last.',
+  },
+  {
+    icon: People,
+    title: 'Local & Trusted',
+    body: 'A locally owned business proudly serving our community with honest, reliable service.',
+  },
+];
+
+/**
+ * Homepage "Why Choose Us" band ("The difference"). Called with no arguments it
+ * renders the homepage content verbatim; passing `kicker`/`heading`/`lede`/`cards`
+ * lets a service page reuse the same design with its own content (see
+ * ServiceTemplate). `cards` items are `{ icon, title, body }` with `icon` already
+ * resolved to a component.
+ */
+export function AboutBlock({ id = 'about', kicker, heading, lede, cards } = {}) {
+  const items = cards || aboutDefaultCards;
+  // A custom heading can be far longer than the homepage's short "Why Choose Us"
+  // (which is pinned to one line); flag it so the stylesheet lets it wrap.
+  const wrapHeading = Boolean(heading);
 
   return (
-    <section className="section why why--diff" id="about">
+    <section className={`section why why--diff${wrapHeading ? ' why--wrap' : ''}`} id={id}>
       <div className="why__side why__side--left" aria-hidden="true">
         <img
           src="/img/hero-day-1280.webp"
@@ -192,18 +205,22 @@ export function AboutBlock() {
 
       <div className="wrap why__inner">
         <Reveal className="whyhead">
-          <p className="whyhead__kicker">The difference</p>
+          <p className="whyhead__kicker">{kicker || 'The difference'}</p>
           <h2>
-            Why <span>Choose Us</span>
+            {heading || (
+              <>
+                Why <span>Choose Us</span>
+              </>
+            )}
           </h2>
           <p className="whyhead__lede">
-            We combine expert service, quality workmanship, and a customer-first approach to keep your
-            garage door running safely and smoothly.
+            {lede ||
+              'We combine expert service, quality workmanship, and a customer-first approach to keep your garage door running safely and smoothly.'}
           </p>
         </Reveal>
 
         <div className="whygrid">
-          {cards.map((c) => {
+          {items.map((c) => {
             const Icon = c.icon;
             return (
               <Reveal className="whycard" key={c.title}>

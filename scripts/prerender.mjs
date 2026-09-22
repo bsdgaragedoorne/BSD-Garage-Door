@@ -31,7 +31,7 @@ if (cssLink) {
   }
 }
 
-const SITE_URL = process.env.SITE_URL || 'https://bsdgaragedoor.com';
+const SITE_URL = process.env.SITE_URL || 'https://bsdgaragedoorllc.com';
 
 let count = 0;
 for (const url of allRoutes) {

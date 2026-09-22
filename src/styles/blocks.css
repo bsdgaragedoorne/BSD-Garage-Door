@@ -1232,7 +1232,9 @@
 
 .nf {
   text-align: center;
-  padding-block: clamp(4rem, 12vw, 8rem);
+  /* The 404 wrapper sits inside a `.section`, which already supplies the
+     standard vertical rhythm (--section-y). Rely on that instead of stacking a
+     second large padding-block, which left the page with excessive empty space. */
 }
 
 .nf__code {

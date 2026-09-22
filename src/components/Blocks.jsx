@@ -80,6 +80,7 @@ export function NumberTalks() {
                 srcSet="/img/logo-240.webp 240w, /img/logo-440.webp 440w"
                 sizes="(max-width: 899px) 140px, 220px"
                 alt="BSD Garage Door"
+                title="BSD Garage Door"
                 width="440"
                 height="304"
                 loading="lazy"

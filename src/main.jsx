@@ -8,6 +8,9 @@ import './styles/premium.css';
 import './styles/light.css';
 import './styles/shop.css';
 import './styles/door3d.css';
+import './styles/service.css';
+import './styles/location.css';
+import './styles/home.css';
 
 const root = document.getElementById('root');
 const tree = (

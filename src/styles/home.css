@@ -1,0 +1,123 @@
+/* ==========================================================================
+   HOME PAGE — extra sections: a local keyword band and a Find-us map panel.
+   Every selector is home-only (.hkw*, .hmap*), so no other page is affected.
+   Built on base.css tokens; no new dependencies, no heavy effects.
+   ========================================================================== */
+
+/* --- Local keyword band -------------------------------------------------- */
+.hkw {
+  background: var(--chalk);
+}
+.hkw__head {
+  max-width: 46rem;
+  margin: 0 auto clamp(2rem, 4.5vw, 3rem);
+  text-align: center;
+}
+.hkw__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.9rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.hkw__head h2 {
+  margin: 0 0 0.9rem;
+}
+.hkw__head h2 .accent,
+.hmap__copy h2 .accent {
+  color: var(--accent);
+}
+.hkw__lede {
+  margin: 0;
+  color: var(--text-body);
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.65;
+}
+.hkw__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+  margin: 0 0 clamp(1.8rem, 3.5vw, 2.6rem);
+  padding: 0;
+  list-style: none;
+}
+.hkw__card {
+  background: #fff;
+  border: 1px solid var(--line-light);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.4rem, 2.6vw, 1.9rem);
+}
+.hkw__card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+.hkw__card p {
+  margin: 0;
+  color: var(--text-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.hkw__foot {
+  max-width: 62ch;
+  margin: 0 auto;
+  text-align: center;
+}
+.hkw__foot > p {
+  margin: 0;
+  color: var(--text-body);
+}
+.hkw__foot .btn-row {
+  justify-content: center;
+  margin-top: 1.6rem;
+}
+
+@media (min-width: 760px) {
+  .hkw__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* --- Find-us map split panel -------------------------------------------- */
+.hmap__panel {
+  display: grid;
+  background: var(--chalk);
+  border: 1px solid var(--line-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 30px 60px -42px rgba(10, 10, 10, 0.45);
+}
+.hmap__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.8rem, 4.5vw, 3.25rem);
+}
+.hmap__copy h2 {
+  margin: 0 0 0.9rem;
+}
+.hmap__copy > p {
+  margin: 0;
+  color: var(--text-body);
+  line-height: 1.65;
+}
+.hmap__map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hmap__frame {
+  width: 100%;
+  min-height: clamp(300px, 58vw, 440px);
+  border: 0;
+}
+
+@media (min-width: 860px) {
+  .hmap__panel {
+    grid-template-columns: 1fr 1.05fr;
+  }
+}

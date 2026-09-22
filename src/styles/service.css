@@ -1,0 +1,265 @@
+/* ==========================================================================
+   SERVICE PAGE TEMPLATE  (<ServiceTemplate>)
+   Styles for the template-owned sections only: the service intro, the
+   offerings/why card grid, the long-form info sections and the text-based
+   service-areas list. Hero, process, "our services", "why choose us" and FAQ
+   reuse existing site sections (.pagehead / HowACall / ServiceRail / AboutBlock
+   / FaqSection) and are styled by their own stylesheets. Built on the base.css
+   design tokens. Mobile-first; one desktop breakpoint at 900px.
+   ========================================================================== */
+
+/* --- Why Choose Us (reused homepage AboutBlock) ------------------------- */
+/* The homepage pins its short "Why Choose Us" heading to one line at >=700px
+   (shop.css). A service page passes a longer heading, so allow it to wrap. */
+.why--diff.why--wrap .whyhead h2 {
+  white-space: normal;
+}
+
+/* --- shared section heading block --------------------------------------- */
+.svc-head {
+  max-width: 62ch;
+  margin-bottom: clamp(1.9rem, 3.6vw, 2.7rem);
+}
+.svc-head p {
+  margin-top: 0.4rem;
+  color: var(--text-body);
+}
+.svc-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.9rem;
+}
+.svc-kicker::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  flex: none;
+}
+
+/* alternate-background band */
+.svc-band--chalk {
+  background: var(--chalk);
+}
+
+/* --- intro (image + content) -------------------------------------------- */
+.svc-intro__grid {
+  display: grid;
+  gap: clamp(1.6rem, 4vw, 3rem);
+  align-items: center;
+}
+.svc-intro__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 54px -32px rgba(10, 10, 10, 0.5);
+}
+.svc-prose > p {
+  color: var(--text-body);
+}
+
+/* Per-service hero background photo (opt-in via page.heroImage). Higher
+   specificity than the shared .pagehead::before, and this file loads after
+   shop.css, so it overrides the default header photo only where a service
+   sets one — opener-repair and every other .pagehead page are untouched. */
+.pagehead.pagehead--photo::before {
+  background-image:
+    linear-gradient(105deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.62) 50%, rgba(0, 0, 0, 0.5) 100%),
+    var(--svc-hero);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Accessible hero photo: a real <img> (so it carries alt + title), opt-in via
+   page.heroAlt. It fills the .pagehead band behind the content with a gradient
+   scrim for legibility; the shared header photo (::before/::after) is disabled.
+   Springs-replacement's CSS-background hero (.pagehead--photo) is unaffected. */
+.pagehead.pagehead--img::before,
+.pagehead.pagehead--img::after {
+  display: none !important;
+}
+.pagehead--img .pagehead__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.pagehead--img .pagehead__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pagehead--img .pagehead__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.62) 50%, rgba(0, 0, 0, 0.48) 100%);
+}
+.pagehead--img .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* Text-only intro (no image) stays readable instead of spanning full width. */
+.svc-intro__grid:not(.svc-intro__grid--media) {
+  max-width: 820px;
+}
+
+/* two-column tick list */
+.svc-ticks {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  gap: 0.8rem;
+}
+.svc-ticks li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.98rem;
+  color: var(--text-body);
+}
+.svc-ticks svg {
+  color: var(--accent);
+  flex: none;
+  margin-top: 0.2rem;
+}
+
+/* --- card grid (offerings) ---------------------------------------------- */
+.svc-grid {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.4rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+}
+.svc-card {
+  background: var(--paper);
+  border: 1px solid var(--line-light);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.35rem, 2.5vw, 1.7rem);
+  height: 100%;
+}
+.svc-card__icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius);
+  background: rgba(227, 6, 19, 0.09);
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.svc-card h3 {
+  margin-bottom: 0.4rem;
+}
+.svc-card p {
+  margin: 0;
+  font-size: 0.96rem;
+}
+
+/* --- long-form info section --------------------------------------------- */
+.svc-info__grid {
+  display: grid;
+  gap: clamp(1.6rem, 4vw, 3rem);
+  align-items: center;
+}
+.svc-info__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+.svc-info__body > p {
+  color: var(--text-body);
+}
+.svc-info__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.1rem;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.svc-info__link svg {
+  transition: transform 0.2s var(--ease);
+}
+.svc-info__link:hover svg {
+  transform: translateX(3px);
+}
+
+/* bulleted signal list */
+.svc-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.4rem 0 0;
+  display: grid;
+  gap: 0.7rem;
+}
+.svc-list li {
+  position: relative;
+  padding-left: 1.6rem;
+  color: var(--text-body);
+}
+.svc-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* brand chips */
+.svc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+  padding: 0;
+  list-style: none;
+}
+.svc-chips li {
+  padding: 0.5rem 0.95rem;
+  border: 1.5px solid var(--line-light);
+  border-radius: 100px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+}
+
+/* --- desktop ------------------------------------------------------------- */
+@media (min-width: 560px) {
+  .svc-ticks {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .svc-intro__grid--media {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+  .svc-info__grid--media {
+    grid-template-columns: 1.02fr 0.98fr;
+  }
+  .svc-info__grid--reverse .svc-info__media {
+    order: -1;
+  }
+}

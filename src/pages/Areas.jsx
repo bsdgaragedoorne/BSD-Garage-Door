@@ -9,6 +9,7 @@ import { NotFound } from './Pages.jsx';
 import LocationBand from '../components/LocationBand.jsx';
 import { AboutIntro, TrustMarquee } from '../components/Sections.jsx';
 import ServiceRail from '../components/ServiceRail.jsx';
+import LocationTemplate from '../components/LocationTemplate.jsx';
 
 export function AreasIndex() {
   const trail = [
@@ -19,10 +20,10 @@ export function AreasIndex() {
   return (
     <>
       <Seo
-        title="Garage Door Service Areas | Franklin & MetroWest, MA"
-        description="BSD Garage Door serves Franklin, MA and surrounding towns - Bellingham, Medway, Wrentham, Foxborough, Milford and Attleboro. Call 843-279-3345."
+        title="Garage Door Service Areas | Franklin & MetroWest MA"
+        description="The Franklin and MetroWest towns BSD Garage Door serves for garage door repair, spring replacement, opener service and installation. Call us now today!"
         path="/service-areas"
-        breadcrumbs={breadcrumbSchema(trail)}
+        canonicalUrl="https://bsdgaragedoorllc.com/service-areas/"
       />
 
       <section className="pagehead pagehead--areas">
@@ -95,6 +96,12 @@ export function AreaDetail() {
   const area = getArea(slug);
   if (!area) return <NotFound />;
 
+  // Opt-in migration: only a location that carries a `page` content block uses
+  // the new reusable LocationTemplate. Right now that is Bellingham alone; every
+  // other location keeps its original implementation below untouched until each
+  // is explicitly migrated.
+  if (area.page) return <LocationTemplate area={area} />;
+
   const trail = [
     { name: 'Home', path: '/' },
     { name: 'Locations', path: '/service-areas' },
@@ -108,8 +115,7 @@ export function AreaDetail() {
         title={`Garage Door Repair in ${area.name}, MA | BSD Garage Door`}
         description={description}
         path={`/service-areas/${area.slug}`}
-        schema={areaSchema(area)}
-        breadcrumbs={breadcrumbSchema(trail)}
+        canonicalUrl={`https://bsdgaragedoorllc.com/service-areas/${area.slug}/`}
       />
 
       <section className="pagehead pagehead--areas">

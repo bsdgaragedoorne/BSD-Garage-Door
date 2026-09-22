@@ -184,6 +184,7 @@ export default function Header() {
               srcSet="/img/logo-240.webp 240w, /img/logo-440.webp 440w"
               sizes="(max-width: 1099px) 200px, 260px"
               alt={biz.name}
+              title={biz.name}
               width="440"
               height="304"
               fetchpriority="high"

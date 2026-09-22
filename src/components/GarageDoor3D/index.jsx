@@ -30,6 +30,7 @@ function Fallback() {
       className="gd3d__fallback"
       src="/img/door-1000.webp"
       alt="White sectional garage door with overhead track and opener"
+      title="Interactive 3D garage door model"
       width="1000"
       height="1000"
       loading="lazy"

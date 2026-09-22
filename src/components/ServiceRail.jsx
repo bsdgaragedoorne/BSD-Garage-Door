@@ -4,6 +4,19 @@ import Reveal from './Reveal.jsx';
 import { icons } from './Icons.jsx';
 import { services } from '../data/site.js';
 
+// Services intentionally hidden from the "Our services" slider/rail across the
+// whole site. The service pages themselves still exist and stay reachable (nav,
+// sitemap, direct links) — they're just not surfaced in the rail.
+const RAIL_HIDDEN = new Set([
+  'emergency-services',
+  'service-and-maintenance',
+  'garage-door-fix',
+  'garage-door-sensor-repair',
+  'garage-door-keypad-installation',
+  'garage-door-remote-replacement',
+]);
+const railServices = services.filter((s) => !RAIL_HIDDEN.has(s.slug));
+
 export function ServiceCard({ s, i, dragging, eager = false }) {
   const Icon = icons[i % icons.length];
   const to = `/services/${s.slug}`;
@@ -25,6 +38,7 @@ export function ServiceCard({ s, i, dragging, eager = false }) {
             srcSet={`/img/${s.img}-440.webp 440w, /img/${s.img}-720.webp 720w`}
             sizes="(min-width: 1000px) 30vw, (min-width: 760px) 45vw, 86vw"
             alt={s.alt}
+            title={s.name}
             width="720"
             height="540"
             loading={eager ? 'eager' : 'lazy'}
@@ -176,7 +190,7 @@ function useSlider(ref) {
 }
 
 export function ServicesShowcase({ featured = false }) {
-  const items = featured ? services.slice(0, 9) : services;
+  const items = featured ? railServices.slice(0, 9) : railServices;
 
   return (
     <div className="svgrid">
@@ -202,7 +216,7 @@ export default function ServiceRail() {
           className={`svslider${dragging ? ' is-dragging' : ''}`}
           ref={scrollerRef}
         >
-          {services.map((s, i) => (
+          {railServices.map((s, i) => (
             <ServiceCard key={s.slug} s={s} i={i} dragging={dragging} eager />
           ))}
         </div>

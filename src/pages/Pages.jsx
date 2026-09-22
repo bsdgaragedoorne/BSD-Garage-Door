@@ -14,10 +14,10 @@ export function About() {
   return (
     <>
       <Seo
-        title="About BSD Garage Door | Franklin, MA Technicians"
-        description="Meet the licensed garage door technicians serving Franklin, MA. Upfront pricing, stocked trucks, 24-hour service Sunday through Thursday. Call 843-279-3345."
+        title="About BSD Garage Door | Franklin, MA Repair Experts"
+        description="Meet BSD Garage Door, the local Franklin, MA team for garage door repair, spring replacement, opener service and new garage door installation. Call now!"
         path="/about"
-        breadcrumbs={breadcrumbSchema(trail)}
+        canonicalUrl="https://bsdgaragedoorllc.com/about/"
       />
 
       <section className="pagehead">
@@ -40,6 +40,7 @@ export function About() {
                 srcSet="/img/about-a-460.webp 460w, /img/about-a-760.webp 760w"
                 sizes="(min-width: 1000px) 26vw, 55vw"
                 alt="BSD Garage Door technician setting new door panels into the tracks at a Franklin home"
+                title="Garage door installation in Franklin, MA"
                 width="760"
                 height="1013"
                 loading="lazy"
@@ -53,6 +54,7 @@ export function About() {
                 srcSet="/img/about-b-460.webp 460w, /img/about-b-760.webp 760w"
                 sizes="(min-width: 1000px) 24vw, 50vw"
                 alt="Technician lubricating garage door hinges during an annual maintenance visit"
+                title="Garage door maintenance in Franklin, MA"
                 width="760"
                 height="570"
                 loading="lazy"
@@ -192,10 +194,10 @@ export function Contact() {
   return (
     <>
       <Seo
-        title="Contact BSD Garage Door | Franklin, MA | 843-279-3345"
-        description="Call 843-279-3345 or request a free garage door estimate in Franklin, MA. 24-hour service Sunday through Thursday, Friday 7am-5pm."
+        title="Contact BSD Garage Door | Franklin, MA Garage Repairs"
+        description="Contact BSD Garage Door in Franklin, MA for fast garage door repair, spring replacement and opener service. Request your free estimate and call today!"
         path="/contact"
-        breadcrumbs={breadcrumbSchema(trail)}
+        canonicalUrl="https://bsdgaragedoorllc.com/contact/"
       />
 
       <section className="pagehead pagehead--contact">
@@ -264,16 +266,22 @@ export function Contact() {
 
 /* ------------------------------------------------------------------- Legal */
 
-function LegalShell({ title, path, description, children }) {
+function LegalShell({ title, path, metaTitle, description, canonicalUrl, updated, children }) {
   const trail = [{ name: 'Home', path: '/' }, { name: title, path }];
   return (
     <>
-      <Seo title={`${title} | ${biz.name}`} description={description} path={path} noindex />
+      <Seo
+        title={metaTitle || `${title} | ${biz.name}`}
+        description={description}
+        path={path}
+        canonicalUrl={canonicalUrl}
+        noindex
+      />
       <section className="pagehead">
         <div className="wrap">
           <Crumbs trail={trail} />
           <h1>{title}</h1>
-          <p className="lede">Last updated {new Date().getFullYear()}</p>
+          <p className="lede">Last updated {updated || new Date().getFullYear()}</p>
         </div>
       </section>
       <section className="section">
@@ -290,74 +298,128 @@ export function Privacy() {
     <LegalShell
       title="Privacy Policy"
       path="/privacy-policy"
-      description="How BSD Garage Door collects, uses and protects the information you submit through this website."
+      metaTitle="Privacy Policy | BSD Garage Door of Franklin, MA USA"
+      description="How BSD Garage Door in Franklin, MA collects, uses and protects the information you share when you request a garage door repair estimate or service call."
+      canonicalUrl="https://bsdgaragedoorllc.com/privacy-policy/"
+      updated="September 22, 2026"
     >
+      <h2>1. Who We Are</h2>
+      <p>Our website address is: https://bsdgaragedoorllc.com/</p>
       <p>
-        This policy explains what {biz.name} does with the information you give us through this website. We
-        keep it short because our practices are simple: we collect what we need to quote and schedule your
-        job, and nothing else.
+        {biz.name}
+        <br />
+        275 Washington St Unit A8
+        <br />
+        Franklin, MA 02038, United States
       </p>
 
-      <h2>Information we collect</h2>
+      <h2>2. What Personal Data We Collect and Why</h2>
+      <h3>Comments</h3>
       <p>
-        When you submit a form we collect your name, phone number, and optionally your email address, city
-        and a description of the problem. We do not ask for payment details through this site. Our host
-        also records standard technical data such as IP address and browser type for security and
-        performance purposes.
+        When visitors leave comments, we collect the data shown in the comments form, along with the
+        visitor&rsquo;s IP address and browser user agent string to help detect spam.
+      </p>
+      <h3>Media</h3>
+      <p>
+        If you upload images to our website, please avoid uploading images that contain embedded location
+        data (EXIF GPS), as visitors may be able to download and extract location data from those images.
+      </p>
+      <h3>Contact Forms</h3>
+      <p>
+        When you submit information through a contact form, we may collect your name, email address, phone
+        number, and message or other information you provide. We use this information to respond to
+        inquiries, provide customer service, and communicate with you regarding our services.
+      </p>
+      <p>We do not use contact form information for marketing purposes without your consent.</p>
+      <h3>Cookies</h3>
+      <p>
+        Our website may use cookies and similar technologies to improve your browsing experience. Cookies
+        may be used to remember preferences, support website functionality, analyze website traffic, and,
+        where applicable, support advertising or other website services.
+      </p>
+      <p>
+        If you leave a comment, cookies may save your name, email address, and website information for your
+        convenience.
+      </p>
+      <h3>Embedded Content</h3>
+      <p>
+        Pages on our website may include embedded content, such as YouTube videos, maps, or other
+        third-party content. Embedded content from other websites behaves in the same way as if you had
+        visited those websites directly.
+      </p>
+      <p>
+        These websites may collect information about you, use cookies, embed additional third-party
+        tracking, and monitor your interaction with the embedded content.
+      </p>
+      <h3>Analytics</h3>
+      <p>
+        We may use third-party analytics services, such as Google Analytics, to understand how visitors use
+        our website and improve our website and services. These services may collect information such as
+        your IP address, device type, browser information, pages visited, and time spent on the website.
       </p>
 
-      <h2>How we use it</h2>
+      <h2>3. Who We Share Your Data With</h2>
+      <p>
+        We may share information with third-party service providers when necessary to operate our website,
+        provide our services, respond to inquiries, or protect our website.
+      </p>
+      <p>These may include:</p>
       <ul>
-        <li>To call or email you back about the estimate or appointment you requested</li>
-        <li>To schedule a technician and route them to your address</li>
-        <li>To keep a service record so future visits have your door history</li>
+        <li>Google and other analytics providers</li>
+        <li>Spam detection services</li>
+        <li>Website hosting and technical service providers</li>
+        <li>Email or communication service providers</li>
+        <li>Email marketing platforms, if you voluntarily subscribe</li>
       </ul>
+      <p>We do not sell or rent your personal information.</p>
+
+      <h2>4. How Long We Retain Your Data</h2>
       <p>
-        We do not sell, rent or trade your information. We do not add you to a marketing list without your
-        say-so.
+        We retain personal information only for as long as reasonably necessary for the purposes described
+        in this Privacy Policy, including responding to inquiries, providing services, maintaining business
+        records, complying with legal obligations, and protecting our website.
+      </p>
+      <p>
+        If you leave a comment, the comment and its metadata may be retained indefinitely unless deletion is
+        requested or the information is no longer needed.
       </p>
 
-      <h2>Sharing</h2>
+      <h2>5. What Rights You Have Over Your Data</h2>
+      <p>Depending on applicable law, you may have the right to request:</p>
+      <ul>
+        <li>A copy of the personal data we hold about you</li>
+        <li>Correction of inaccurate personal information</li>
+        <li>
+          Deletion of your personal data, except where we are required or permitted to retain it for legal,
+          security, or legitimate business purposes
+        </li>
+      </ul>
+      <p>To make a privacy-related request, please contact us using the information below.</p>
+
+      <h2>6. Where We Send Your Data</h2>
       <p>
-        Information is shared only with the technician assigned to your job and with the service providers
-        that run this website and our email. Those providers process data on our behalf and are not
-        permitted to use it for anything else. We will also disclose information where the law requires it.
+        Visitor comments and other information submitted through our website may be checked through
+        automated spam detection services.
+      </p>
+      <p>
+        Information may also be processed by third-party service providers that help us operate our website,
+        communications, analytics, and customer service.
       </p>
 
-      <h2>Cookies and analytics</h2>
+      <h2>7. Contact Information</h2>
+      <p>For privacy-related questions or requests, please contact:</p>
       <p>
-        This site uses only the cookies required for it to function, plus any analytics you have been told
-        about at the point of collection. We do not run advertising trackers on this site.
-      </p>
-
-      <h2>Retention and your choices</h2>
-      <p>
-        We keep service records for as long as needed to honour warranties and meet our record-keeping
-        obligations. You can ask us to correct or delete your information at any time by emailing{' '}
-        <a href={biz.emailHref}>{biz.email}</a> or calling <a href={biz.phoneHref}>{biz.phone}</a>. If you
-        ask us to stop contacting you, we will.
-      </p>
-
-      <h2>Children</h2>
-      <p>This site is intended for adults arranging home or business services and is not directed at children.</p>
-
-      <h2>Changes</h2>
-      <p>
-        If this policy changes we will update this page and the date above. Continuing to use the site after
-        a change means you accept the updated policy.
-      </p>
-
-      <h2>Contact</h2>
-      <p>
-        {biz.name}, {biz.city}, {biz.state}. Phone <a href={biz.phoneHref}>{biz.phone}</a>, email{' '}
-        <a href={biz.emailHref}>{biz.email}</a>.
-      </p>
-
-      <p>
-        <em>
-          This policy is provided as a starting point and is not legal advice. Have it reviewed by a
-          Massachusetts attorney before relying on it.
-        </em>
+        {biz.name}
+        <br />
+        275 Washington St Unit A8
+        <br />
+        Franklin, MA 02038, United States
+        <br />
+        Email: <a href={biz.emailHref}>{biz.email}</a>
+        <br />
+        Phone: <a href={biz.phoneHref}>+1 843-279-3345</a>
+        <br />
+        Website: https://bsdgaragedoorllc.com/
       </p>
     </LegalShell>
   );
@@ -368,73 +430,83 @@ export function Terms() {
     <LegalShell
       title="Terms and Conditions"
       path="/terms-and-conditions"
-      description="The terms that apply to use of the BSD Garage Door website and the services we quote through it."
+      metaTitle="Terms & Conditions | BSD Garage Door of Franklin, MA"
+      description="The terms and conditions for using the BSD Garage Door website and the garage door services we quote across Franklin, MA and the wider MetroWest towns."
+      canonicalUrl="https://bsdgaragedoorllc.com/terms-and-conditions/"
+      updated="September 22, 2026"
     >
+      <h2>1. Who We Are</h2>
+      <p>Our website address is: https://bsdgaragedoorllc.com/</p>
+
+      <h2>2. What Personal Data We Collect and Why</h2>
+      <h3>Comments</h3>
       <p>
-        These terms apply to your use of this website and to estimates requested through it. By using the
-        site you agree to them.
+        When visitors leave comments, we collect the data shown in the comments form, along with the
+        visitor&rsquo;s IP address and browser user agent string to help detect spam.
+      </p>
+      <h3>Media</h3>
+      <p>
+        If you upload images, avoid uploading images with embedded location data (EXIF GPS), as visitors may
+        be able to download and extract location data.
+      </p>
+      <h3>Contact Forms</h3>
+      <p>
+        We collect your name, email, and message only for customer service purposes. We do not use this
+        information for marketing without your consent.
+      </p>
+      <h3>Cookies</h3>
+      <p>
+        If you leave a comment, cookies may save your name, email, and website for convenience. Cookies may
+        also be used for login, analytics, and advertising.
+      </p>
+      <h3>Embedded Content</h3>
+      <p>
+        Pages may include embedded content (e.g., YouTube videos). These websites may collect data, use
+        cookies, and track your interaction with the embedded content.
+      </p>
+      <h3>Analytics</h3>
+      <p>
+        We use third-party services like Google Analytics to understand visitor behavior. These tools may
+        track your IP address, device type, and time on site.
       </p>
 
-      <h2>Estimates and quotes</h2>
-      <p>
-        Prices shown on this site are typical starting points, not fixed quotes. The final price depends on
-        the door, the parts required and the condition of the system, and is confirmed in writing before any
-        work begins. You are free to decline at that point with nothing owed beyond any agreed diagnostic
-        fee.
-      </p>
+      <h2>3. Who We Share Your Data With</h2>
+      <p>We may share data with:</p>
+      <ul>
+        <li>Google (for analytics)</li>
+        <li>Spam detection services</li>
+        <li>Email marketing platforms (if subscribed)</li>
+      </ul>
+      <p>We do not sell or rent your personal information.</p>
 
-      <h2>Diagnostic fees</h2>
-      <p>
-        Estimates for new doors and openers are free. Repair visits may carry a diagnostic fee, disclosed
-        when you book, which is waived in full if you approve the repair.
-      </p>
+      <h2>4. How Long We Retain Your Data</h2>
+      <p>If you leave a comment, the comment and metadata are retained indefinitely.</p>
+      <p>For registered users, we store the personal information they provide in their user profile.</p>
 
-      <h2>Warranty</h2>
-      <p>
-        Workmanship is warranted for one year from the date of service. Parts carry the manufacturer&rsquo;s
-        warranty. The warranty does not cover damage from misuse, vehicle impact, storm damage, or work
-        performed on the door by anyone else after our visit.
-      </p>
+      <h2>5. What Rights You Have Over Your Data</h2>
+      <p>You can request:</p>
+      <ul>
+        <li>A copy of your data</li>
+        <li>Deletion of your personal data (excluding any data required for legal or security purposes)</li>
+      </ul>
 
-      <h2>Scheduling and access</h2>
-      <p>
-        Arrival windows are estimates and may shift due to emergencies ahead of you in the queue. Someone
-        aged 18 or over must be present, and the technician needs safe access to the door and to power.
-      </p>
+      <h2>6. Where We Send Your Data</h2>
+      <p>Visitor comments may be checked through an automated spam detection service.</p>
 
-      <h2>Safety</h2>
+      <h2>7. Contact Information</h2>
+      <p>For privacy-related questions, please contact:</p>
       <p>
-        Garage door springs and cables store enough energy to cause serious injury. Nothing on this site is
-        an instruction to attempt a repair yourself, and we accept no liability for injury or damage arising
-        from work you carry out on your own door.
-      </p>
-
-      <h2>Website content</h2>
-      <p>
-        Content on this site is provided for general information and may change without notice. The text,
-        images, logo and design are the property of {biz.name} and may not be reproduced without permission.
-      </p>
-
-      <h2>Limitation of liability</h2>
-      <p>
-        To the fullest extent permitted by Massachusetts law, our liability arising from services or from
-        use of this site is limited to the amount paid for the service in question. We are not liable for
-        indirect or consequential losses.
-      </p>
-
-      <h2>Governing law</h2>
-      <p>These terms are governed by the laws of the Commonwealth of Massachusetts.</p>
-
-      <h2>Contact</h2>
-      <p>
-        Questions about these terms: {biz.name}, {biz.city}, {biz.state}, <a href={biz.phoneHref}>{biz.phone}</a>,{' '}
-        <a href={biz.emailHref}>{biz.email}</a>.
-      </p>
-
-      <p>
-        <em>
-          These terms are a starting template and are not legal advice. Have them reviewed by a Massachusetts attorney before relying on them.
-        </em>
+        {biz.name}
+        <br />
+        275 Washington St Unit A8
+        <br />
+        Franklin, MA 02038, United States
+        <br />
+        Email: <a href={biz.emailHref}>{biz.email}</a>
+        <br />
+        Phone: <a href={biz.phoneHref}>+1 843-279-3345</a>
+        <br />
+        Website: https://bsdgaragedoorllc.com/
       </p>
     </LegalShell>
   );
@@ -446,9 +518,10 @@ export function NotFound() {
   return (
     <>
       <Seo
-        title="Page not found | BSD Garage Door"
-        description="That page does not exist. Find garage door repair services and service areas across Franklin, MA."
+        title="Page Not Found | BSD Garage Door in Franklin, MA USA"
+        description="This page could not be found. Explore BSD Garage Door repair, spring replacement, opener service and installation across Franklin, MA and the MetroWest."
         path="/404"
+        canonicalUrl="https://bsdgaragedoorllc.com/404"
         noindex
       />
       <section className="section">

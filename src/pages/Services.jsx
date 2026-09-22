@@ -6,6 +6,7 @@ import { Check, icons } from '../components/Icons.jsx';
 import { biz, getService, services } from '../data/site.js';
 import LocationBand from '../components/LocationBand.jsx';
 import { breadcrumbSchema, serviceSchema } from '../lib/schema.js';
+import ServiceTemplate from '../components/ServiceTemplate.jsx';
 import { NotFound } from './Pages.jsx';
 
 export function ServicesIndex() {
@@ -17,10 +18,10 @@ export function ServicesIndex() {
   return (
     <>
       <Seo
-        title="Garage Door Services in Franklin, MA | Repair & Installation"
-        description="Full garage door services in Franklin, MA: installation, repair, maintenance, spring replacement, opener installation and emergency callouts. Free estimate - 843-279-3345."
+        title="Garage Door Services in Franklin, MA | BSD Garage Door"
+        description="Garage door services in Franklin, MA: repair, spring replacement, opener service, maintenance and new door installation. Free estimates, call us today!"
         path="/services"
-        breadcrumbs={breadcrumbSchema(trail)}
+        canonicalUrl="https://bsdgaragedoorllc.com/services/"
       />
 
       <section className="pagehead">
@@ -85,6 +86,12 @@ export function ServiceDetail() {
   const service = getService(slug);
   if (!service) return <NotFound />;
 
+  // Opt-in migration: only a service that carries a `page` content block uses
+  // the new reusable ServiceTemplate. Right now that is opener-repair alone;
+  // every other service keeps its original implementation below untouched
+  // until each is explicitly migrated.
+  if (service.page) return <ServiceTemplate service={service} />;
+
   const trail = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
@@ -132,6 +139,7 @@ export function ServiceDetail() {
                 srcSet={`/img/${service.img}-440.webp 440w, /img/${service.img}-720.webp 720w`}
                 sizes="(min-width: 900px) 38vw, 86vw"
                 alt={service.alt}
+                title={service.name}
                 width="720"
                 height="540"
               />
