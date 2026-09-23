@@ -5,7 +5,7 @@ import { Clock, Gear, IconAward, IconToolbox, Phone, Arrow, ShieldPlain } from '
 import Reveal from './Reveal.jsx';
 
 const talkStats = [
-  { icon: Gear, value: '24hr', label: 'Emergency hours' },
+  { icon: Gear, value: '24/7', label: 'Emergency hours' },
   { icon: IconAward, value: '10+', label: 'Years of experience' },
   { icon: Clock, value: 'Same-day', label: 'Typical response' },
   { icon: ShieldPlain, value: 'Licensed', label: '& insured' },

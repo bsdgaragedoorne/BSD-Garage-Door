@@ -370,7 +370,7 @@ export default function LeadForm({
           <a href={biz.phoneHref} style={{ color: 'inherit', textDecoration: 'underline' }}>
             {biz.phone}
           </a>{' '}
-          during opening hours. No spam, no shared data.
+          anytime. No spam, no shared data.
         </p>
       )}
     </form>

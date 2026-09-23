@@ -11,6 +11,7 @@ import './styles/door3d.css';
 import './styles/service.css';
 import './styles/location.css';
 import './styles/home.css';
+import './styles/review-widget.css';
 
 const root = document.getElementById('root');
 const tree = (

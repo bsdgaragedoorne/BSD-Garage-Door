@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Reveal from './Reveal.jsx';
+import ReviewWidget from './ReviewWidget.jsx';
 import { biz, googleReviews, googleRating } from '../data/site.js';
 
 // Fallback dataset: the existing hardcoded testimonials, filtered exactly as
@@ -50,7 +51,7 @@ function ReviewCard({ review }) {
     <article className="grev__card">
       <div className="grev__who">
         {review.photo ? (
-          <img src={review.photo} alt="" width="64" height="64" />
+          <img src={review.photo} alt="" width="64" height="64" loading="lazy" decoding="async" />
         ) : (
           <span className="grev__initials" aria-hidden="true">
             {review.initials}
@@ -161,6 +162,8 @@ export default function GoogleReviews() {
               <ReviewCard key={`${i}-${review.name}`} review={review} />
             ))}
           </div>
+
+          <ReviewWidget />
         </Reveal>
       </div>
     </section>

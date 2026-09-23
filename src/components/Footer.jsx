@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { biz, services } from '../data/site.js';
-import { Phone, Mail, Pin, ArrowUpRight } from './Icons.jsx';
+import { Phone, Mail, Pin, Clock, ArrowUpRight } from './Icons.jsx';
 
 const featuredSlugs = [
   'springs-replacement',
@@ -90,6 +90,10 @@ export default function Footer() {
               <span className="footer__nap-row">
                 <Phone size={15} />
                 <a href={biz.phoneHref}>{biz.phone}</a>
+              </span>
+              <span className="footer__nap-row">
+                <Clock size={15} />
+                <span>{biz.hours}</span>
               </span>
             </address>
           </div>

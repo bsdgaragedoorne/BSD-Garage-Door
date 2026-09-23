@@ -16,21 +16,9 @@ export const postalAddress = {
 export const openingHours = [
   {
     '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+    dayOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     opens: '00:00',
     closes: '23:59',
-  },
-  {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Friday'],
-    opens: '07:00',
-    closes: '17:00',
-  },
-  {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Saturday'],
-    opens: '00:00',
-    closes: '00:00',
   },
 ];
 
@@ -55,7 +43,7 @@ export function organizationSchema() {
         priceRange: biz.priceRange,
         slogan: 'Garage door repair that shows up.',
         description:
-          'Licensed garage door repair, spring replacement, opener service and new door installation in Franklin, Massachusetts and surrounding MetroWest communities. 24-hour service Sunday through Thursday.',
+          'Licensed garage door repair, spring replacement, opener service and new door installation in Franklin, Massachusetts and surrounding MetroWest communities. 24/7 service.',
         areaServed: areas.map((a) => ({
           '@type': 'City',
           name: a.name,
@@ -145,7 +133,7 @@ export function areaSchema(area) {
     openingHoursSpecification: openingHours,
     priceRange: biz.priceRange,
     areaServed: { '@type': 'City', name: `${area.name}, Massachusetts` },
-    description: `Garage door repair, spring replacement, opener service and new door installation in ${area.name}, MA. Licensed, insured, 24-hour service Sunday through Thursday.`,
+    description: `Garage door repair, spring replacement, opener service and new door installation in ${area.name}, MA. Licensed, insured, 24/7 service.`,
   };
 }
 

@@ -21,7 +21,7 @@ export function ServicesIndex() {
         title="Garage Door Services in Franklin, MA | BSD Garage Door"
         description="Garage door services in Franklin, MA: repair, spring replacement, opener service, maintenance and new door installation. Free estimates, call us today!"
         path="/services"
-        canonicalUrl="https://bsdgaragedoorllc.com/services/"
+        canonicalUrl="https://bsdgaragedoor.com/services/"
       />
 
       <section className="pagehead">
@@ -30,7 +30,7 @@ export function ServicesIndex() {
           <h1>Garage Door Services in Franklin, MA</h1>
           <p className="lede">
             Thirteen service lines covering everything from an annual tune-up to a full insulated door
-            replacement - residential and commercial, across MetroWest, six days a week.
+            replacement - residential and commercial, across MetroWest, seven days a week.
           </p>
           <div className="btn-row">
             <a href={biz.phoneHref} className="btn btn--fx">

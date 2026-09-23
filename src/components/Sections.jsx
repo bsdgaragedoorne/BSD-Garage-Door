@@ -17,7 +17,7 @@ const aboutTabs = [
   {
     id: 'emergency',
     label: 'Emergency',
-    body: 'Door stuck open or a car trapped inside? We take those calls Sunday through Thursday, around the clock, and tell you plainly whether it is urgent.',
+    body: 'Door stuck open or a car trapped inside? We take those calls around the clock, seven days a week, and tell you plainly whether it is urgent.',
   },
 ];
 

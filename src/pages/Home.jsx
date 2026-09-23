@@ -19,7 +19,7 @@ export default function Home() {
         title="Garage Door Repair in Franklin - BSD Garage Door"
         description="Looking for Garage Door Repair in Franklin? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!"
         path="/"
-        canonicalUrl="https://bsdgaragedoorllc.com/"
+        canonicalUrl="https://bsdgaragedoor.com/"
       />
 
       {/* Homepage LocalBusiness structured data (custom JSON-LD) */}
@@ -114,9 +114,6 @@ export default function Home() {
               <a href={biz.phoneHref} className="btn btn--fx">
                 Call {biz.phone}
               </a>
-              <Link to="/services" className="btn btn--ghost">
-                See all services
-              </Link>
             </div>
           </Reveal>
         </div>

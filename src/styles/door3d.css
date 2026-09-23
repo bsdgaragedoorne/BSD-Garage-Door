@@ -66,6 +66,7 @@
 
 .gd3d__grid {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(1.5rem, 4vw, 3.5rem);
   align-items: center;
 }

@@ -6,6 +6,7 @@ import { Crumbs, HowACall } from './Blocks.jsx';
 import { AboutIntro, TrustMarquee, AboutBlock } from './Sections.jsx';
 import ServiceRail from './ServiceRail.jsx';
 import LocationBand from './LocationBand.jsx';
+import GoogleReviews from './GoogleReviews.jsx';
 import FaqSection from './FaqSection.jsx';
 import { Check, Phone, Pin, Gear, Wrench, Bolt, Shield, IconTrack } from './Icons.jsx';
 import { biz } from '../data/site.js';
@@ -149,8 +150,9 @@ export default function LocationTemplate({ area }) {
             </section>
 
             {/* 6 — Our services (shared homepage rail) sits directly below the
-                    first content section. */}
+                    first content section, with the testimonials section beneath it. */}
             {i === 0 && <ServiceRail />}
+            {i === 0 && <GoogleReviews />}
           </Fragment>
         );
       })}

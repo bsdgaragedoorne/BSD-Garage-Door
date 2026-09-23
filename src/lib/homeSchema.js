@@ -5,15 +5,15 @@
 export const homeLocalBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': 'https://bsdgaragedoorllc.com/#localbusiness',
+  '@id': 'https://bsdgaragedoor.com/#localbusiness',
   name: 'BSD Garage Door',
-  url: 'https://bsdgaragedoorllc.com/',
+  url: 'https://bsdgaragedoor.com/',
   telephone: '+18432793345',
   email: 'bsdgaragedoorne@gmail.com',
   description:
     'BSD Garage Door provides garage door services in Franklin, MA, including garage door repair, garage door fix, and garage door installation. Services include garage door opener repair, LiftMaster garage door repair, garage door spring replacement, garage door sensor repair, garage door roller replacement, and garage door weather seal replacement. The company also provides garage door keypad installation, garage door remote replacement, commercial garage door repair, and emergency garage door repair for residential and commercial properties in Franklin and surrounding areas.',
-  image: 'https://bsdgaragedoorllc.com/img/van-clean-780.webp',
-  logo: 'https://bsdgaragedoorllc.com/img/logo-440.webp',
+  image: 'https://bsdgaragedoor.com/img/van-clean-780.webp',
+  logo: 'https://bsdgaragedoor.com/img/logo-440.webp',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '275 Washington St Unit A8',
@@ -31,15 +31,9 @@ export const homeLocalBusinessSchema = {
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Sunday'],
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
       opens: '00:00',
       closes: '23:59',
-    },
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: 'Friday',
-      opens: '07:00',
-      closes: '17:00',
     },
   ],
   areaServed: [

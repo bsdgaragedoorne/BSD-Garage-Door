@@ -17,7 +17,7 @@ export function About() {
         title="About BSD Garage Door | Franklin, MA Repair Experts"
         description="Meet BSD Garage Door, the local Franklin, MA team for garage door repair, spring replacement, opener service and new garage door installation. Call now!"
         path="/about"
-        canonicalUrl="https://bsdgaragedoorllc.com/about/"
+        canonicalUrl="https://bsdgaragedoor.com/about/"
       />
 
       <section className="pagehead">
@@ -169,7 +169,7 @@ export function About() {
                 <Check size={17} /> Upfront pricing before work begins
               </li>
               <li>
-                <Check size={17} /> 24-hour service Sunday through Thursday
+                <Check size={17} /> 24/7 service, every day of the week
               </li>
               <li>
                 <Check size={17} /> Every technician is our own employee, never a subcontractor
@@ -197,7 +197,7 @@ export function Contact() {
         title="Contact BSD Garage Door | Franklin, MA Garage Repairs"
         description="Contact BSD Garage Door in Franklin, MA for fast garage door repair, spring replacement and opener service. Request your free estimate and call today!"
         path="/contact"
-        canonicalUrl="https://bsdgaragedoorllc.com/contact/"
+        canonicalUrl="https://bsdgaragedoor.com/contact/"
       />
 
       <section className="pagehead pagehead--contact">
@@ -300,11 +300,11 @@ export function Privacy() {
       path="/privacy-policy"
       metaTitle="Privacy Policy | BSD Garage Door of Franklin, MA USA"
       description="How BSD Garage Door in Franklin, MA collects, uses and protects the information you share when you request a garage door repair estimate or service call."
-      canonicalUrl="https://bsdgaragedoorllc.com/privacy-policy/"
+      canonicalUrl="https://bsdgaragedoor.com/privacy-policy/"
       updated="September 22, 2026"
     >
       <h2>1. Who We Are</h2>
-      <p>Our website address is: https://bsdgaragedoorllc.com/</p>
+      <p>Our website address is: https://bsdgaragedoor.com/</p>
       <p>
         {biz.name}
         <br />
@@ -419,7 +419,7 @@ export function Privacy() {
         <br />
         Phone: <a href={biz.phoneHref}>+1 843-279-3345</a>
         <br />
-        Website: https://bsdgaragedoorllc.com/
+        Website: https://bsdgaragedoor.com/
       </p>
     </LegalShell>
   );
@@ -432,11 +432,11 @@ export function Terms() {
       path="/terms-and-conditions"
       metaTitle="Terms & Conditions | BSD Garage Door of Franklin, MA"
       description="The terms and conditions for using the BSD Garage Door website and the garage door services we quote across Franklin, MA and the wider MetroWest towns."
-      canonicalUrl="https://bsdgaragedoorllc.com/terms-and-conditions/"
+      canonicalUrl="https://bsdgaragedoor.com/terms-and-conditions/"
       updated="September 22, 2026"
     >
       <h2>1. Who We Are</h2>
-      <p>Our website address is: https://bsdgaragedoorllc.com/</p>
+      <p>Our website address is: https://bsdgaragedoor.com/</p>
 
       <h2>2. What Personal Data We Collect and Why</h2>
       <h3>Comments</h3>
@@ -506,7 +506,7 @@ export function Terms() {
         <br />
         Phone: <a href={biz.phoneHref}>+1 843-279-3345</a>
         <br />
-        Website: https://bsdgaragedoorllc.com/
+        Website: https://bsdgaragedoor.com/
       </p>
     </LegalShell>
   );
@@ -521,7 +521,7 @@ export function NotFound() {
         title="Page Not Found | BSD Garage Door in Franklin, MA USA"
         description="This page could not be found. Explore BSD Garage Door repair, spring replacement, opener service and installation across Franklin, MA and the MetroWest."
         path="/404"
-        canonicalUrl="https://bsdgaragedoorllc.com/404"
+        canonicalUrl="https://bsdgaragedoor.com/404"
         noindex
       />
       <section className="section">

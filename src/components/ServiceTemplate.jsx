@@ -6,6 +6,7 @@ import ServiceRail from './ServiceRail.jsx';
 import { AboutBlock } from './Sections.jsx';
 import FaqSection from './FaqSection.jsx';
 import LocationBand from './LocationBand.jsx';
+import GoogleReviews from './GoogleReviews.jsx';
 import { Check, Phone, Pin, Arrow, Gear, Wrench, Bolt, Shield, IconTrack } from './Icons.jsx';
 import { biz } from '../data/site.js';
 import { buildServiceGraph } from '../lib/serviceJsonLd.js';
@@ -199,6 +200,9 @@ export default function ServiceTemplate({ service }) {
 
       {/* 4 — Our services (shared homepage rail) */}
       <ServiceRail />
+
+      {/* 4b — Testimonials (shared homepage Google reviews section) */}
+      <GoogleReviews />
 
       {/* 5 — Services we provide (service-specific offerings) */}
       {offerings && (

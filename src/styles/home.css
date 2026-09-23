@@ -74,6 +74,7 @@
 }
 .hkw__foot .btn-row {
   justify-content: center;
+  align-items: center;
   margin-top: 1.6rem;
 }
 

@@ -31,7 +31,7 @@ if (cssLink) {
   }
 }
 
-const SITE_URL = process.env.SITE_URL || 'https://bsdgaragedoorllc.com';
+const SITE_URL = process.env.SITE_URL || 'https://bsdgaragedoor.com';
 
 let count = 0;
 for (const url of allRoutes) {
@@ -60,7 +60,7 @@ const urls = allRoutes
   .filter((u) => u !== '/404' && u !== '/privacy-policy' && u !== '/terms-and-conditions')
   .map(
     (u) =>
-      `  <url>\n    <loc>${SITE_URL}${u === '/' ? '/' : u}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${priority(u)}</priority>\n  </url>`
+      `  <url>\n    <loc>${SITE_URL}${u === '/' ? '/' : `${u}/`}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${priority(u)}</priority>\n  </url>`
   )
   .join('\n');
 

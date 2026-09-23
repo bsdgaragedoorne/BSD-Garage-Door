@@ -14,6 +14,7 @@ const RAIL_HIDDEN = new Set([
   'garage-door-sensor-repair',
   'garage-door-keypad-installation',
   'garage-door-remote-replacement',
+  'commercial-garage-door-repair',
 ]);
 const railServices = services.filter((s) => !RAIL_HIDDEN.has(s.slug));
 
@@ -217,7 +218,7 @@ export default function ServiceRail() {
           ref={scrollerRef}
         >
           {railServices.map((s, i) => (
-            <ServiceCard key={s.slug} s={s} i={i} dragging={dragging} eager />
+            <ServiceCard key={s.slug} s={s} i={i} dragging={dragging} eager={i < 2} />
           ))}
         </div>
 

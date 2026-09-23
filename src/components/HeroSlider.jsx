@@ -3,7 +3,7 @@ import LeadForm from './LeadForm.jsx';
 import { Check, Shield, Clock, Pin } from './Icons.jsx';
 
 const TRUST = [
-  { icon: Clock, label: '24 hr Sun-Thu' },
+  { icon: Clock, label: 'Open 24/7' },
   { icon: Check, label: 'Licensed & insured' },
   { icon: Shield, label: 'Same-day when we can' },
   { icon: Pin, label: 'Franklin MetroWest' },

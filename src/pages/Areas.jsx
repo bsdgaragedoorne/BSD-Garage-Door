@@ -23,7 +23,7 @@ export function AreasIndex() {
         title="Garage Door Service Areas | Franklin & MetroWest MA"
         description="The Franklin and MetroWest towns BSD Garage Door serves for garage door repair, spring replacement, opener service and installation. Call us now today!"
         path="/service-areas"
-        canonicalUrl="https://bsdgaragedoorllc.com/service-areas/"
+        canonicalUrl="https://bsdgaragedoor.com/service-areas/"
       />
 
       <section className="pagehead pagehead--areas">
@@ -130,7 +130,7 @@ export function AreaDetail() {
         title={`Garage Door Repair in ${area.name}, MA | BSD Garage Door`}
         description={description}
         path={`/service-areas/${area.slug}`}
-        canonicalUrl={`https://bsdgaragedoorllc.com/service-areas/${area.slug}/`}
+        canonicalUrl={`https://bsdgaragedoor.com/service-areas/${area.slug}/`}
       />
 
       <section className="pagehead pagehead--areas">

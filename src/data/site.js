@@ -4,7 +4,7 @@
 
 import { springsServiceSchema } from '../lib/springsSchema.js';
 
-export const SITE_URL = 'https://bsdgaragedoorllc.com';
+export const SITE_URL = 'https://bsdgaragedoor.com';
 
 export const biz = {
   name: 'BSD Garage Door',
@@ -28,12 +28,10 @@ export const biz = {
   // Google Business Profile Place ID (Places API New). Drives the live reviews
   // fetched server-side by netlify/functions/reviews.js.
   placeId: 'ChIJb5IBMepv5IkRP8foasQrKQc',
-  hours: 'Sun-Thu 24 hours · Fri 7am-5pm · Sat closed',
-  hoursShort: '24hrs Sun-Thu · Fri 7am-5pm',
+  hours: 'Open 24/7',
+  hoursShort: 'Open 24/7',
   hoursList: [
-    { days: 'Sunday - Thursday', time: 'Open 24 hours' },
-    { days: 'Friday', time: '7:00 AM - 5:00 PM' },
-    { days: 'Saturday', time: 'Closed' },
+    { days: 'Every day', time: 'Open 24 hours' },
   ],
   priceRange: '$$',
   radiusMiles: 20,
@@ -67,7 +65,7 @@ export const services = [
       metaTitle: 'Garage Door Spring Replacement - BSD Garage Door',
       metaDescription:
         'BSD Garage Door provides Garage Door Spring Replacement for broken springs, worn springs, and urgent spring repairs, restoring safe operation. Call today!',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/springs-replacement/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/springs-replacement/',
       jsonLd: springsServiceSchema,
       heroKicker: 'Franklin & MetroWest spring specialists',
       heroImage: 'sv-springs-replacement-441.webp',
@@ -228,7 +226,7 @@ export const services = [
       metaTitle: 'Garage Door Opener Repair - BSD Garage Door',
       metaDescription:
         'Need Garage Door Opener Repair? BSD Garage Door handles opener faults, intermittent operation, and stopping issues. Get dependable repair service today.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/opener-repair/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/opener-repair/',
       heroKicker: 'Franklin & MetroWest opener specialists',
       heroImage: 'sv-garage-door-opener-repair-440.webp',
       heroAlt:
@@ -394,7 +392,7 @@ export const services = [
       metaTitle: 'Opener Installation - BSD Garage Door',
       metaDescription:
         'BSD Garage Door offers Opener Installation, garage opener setup, new opener installation, and professional opener replacement. Call today for service.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/opener-installation/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/opener-installation/',
       heroImage: 'opener-installation-hero.webp',
       heroKicker: 'Franklin & MetroWest opener specialists',
       introImage: 'sv-opener-installation',
@@ -549,7 +547,7 @@ export const services = [
       metaTitle: 'Off-Track Repair - BSD Garage Door',
       metaDescription:
         'BSD Garage Door provides Off-Track Repair for crooked, stuck, and misaligned garage doors, including track realignment. Get reliable repair today!',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/off-track-repair/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/off-track-repair/',
       heroKicker: 'Franklin & MetroWest off-track specialists',
       introImage: 'sv-off-track-repair',
       heroSub:
@@ -701,7 +699,7 @@ export const services = [
       metaTitle: 'Garage Door Roller Replacement - BSD Garage Door',
       metaDescription:
         'BSD Garage Door provides Garage Door Roller Replacement for worn, noisy, sticking, or uneven rollers. Restore smooth door movement and call today.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/rollers-replacement/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/rollers-replacement/',
       heroKicker: 'Franklin & MetroWest roller specialists',
       introImage: 'sv-rollers-replacement',
       heroSub:
@@ -853,7 +851,7 @@ export const services = [
       metaTitle: 'Hinges Replacement - BSD Garage Door',
       metaDescription:
         'Need Hinges Replacement? BSD Garage Door handles worn hinge replacement, damaged hinge repair, and uneven door movement. Restore smooth operation today.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/hinges-replacement/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/hinges-replacement/',
       heroKicker: 'Franklin & MetroWest hinge specialists',
       introImage: 'sv-hinges-replacement',
       heroSub:
@@ -1005,7 +1003,7 @@ export const services = [
       metaTitle: 'Tracks Replacement - BSD Garage Door',
       metaDescription:
         'Need Tracks Replacement? BSD Garage Door handles bent track replacement, damaged track issues, and uneven door travel. Restore smooth movement today.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/tracks-replacement/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/tracks-replacement/',
       heroKicker: 'Franklin & MetroWest track specialists',
       introImage: 'sv-tracks-replacement',
       heroSub:
@@ -1157,7 +1155,7 @@ export const services = [
       metaTitle: 'Garage Door Weather Seal Replacement - BSD Garage Door',
       metaDescription:
         'BSD Garage Door offers Garage Door Weather Seal Replacement for worn seals, draft gaps, moisture entry, and damaged seals. Restore coverage today.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/weather-strip-replacement/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/weather-strip-replacement/',
       heroImage: 'weather-strip-replacement-hero.webp',
       heroKicker: 'Franklin & MetroWest weatherproofing specialists',
       introImage: 'sv-weather-strip-replacement',
@@ -1313,7 +1311,7 @@ export const services = [
       metaTitle: 'Panels Repair - BSD Garage Door',
       metaDescription:
         'Need Panels Repair? BSD Garage Door handles dented panels, cracked sections, impact damage, and bent garage door panels. Restore yours today.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/panels-repair/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/panels-repair/',
       heroKicker: 'Franklin & MetroWest panel specialists',
       introImage: 'sv-panels-repair',
       heroSub:
@@ -1465,7 +1463,7 @@ export const services = [
       metaTitle: 'Panels Replacement - BSD Garage Door',
       metaDescription:
         'Need Panels Replacement? BSD Garage Door replaces damaged, bent, or impact-damaged garage door panels for proper fit and smooth operation. Call today.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/panels-replacement/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/panels-replacement/',
       heroKicker: 'Franklin & MetroWest panel specialists',
       introImage: 'sv-panels-replacement',
       heroSub:
@@ -1617,7 +1615,7 @@ export const services = [
       metaTitle: 'Garage Door Installation - BSD Garage Door',
       metaDescription:
         'Need Garage Door Installation? BSD Garage Door provides new door installation, replacement setup, and precise fitting for smooth operation. Call today.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/new-door-installation/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/new-door-installation/',
       heroImage: 'new-door-installation-hero.webp',
       heroKicker: 'Franklin & MetroWest installation specialists',
       introImage: 'sv-new-door-installation',
@@ -1756,11 +1754,11 @@ export const services = [
     img: 'sv-emergency-services',
     alt: 'Black sedan crashed through a garage door, with the door panels torn from the opening',
     about: [
-      'Door stuck open, car trapped, spring snapped at night \u2014 those calls go to the front of the queue. We run 24-hour service Sunday through Thursday and will tell you on the phone whether it is urgent or it can wait until morning.',
+      'Door stuck open, car trapped, spring snapped at night \u2014 those calls go to the front of the queue. We run 24/7 service and will tell you on the phone whether it is urgent or it can wait until morning.',
       'Common emergency parts ride on the truck: springs, cables, rollers and opener bits. If we can make the door safe the same visit, we will. If it needs a section or a new operator, you get that price before we start.',
     ],
     points: [
-      '24-hour service Sunday through Thursday',
+      '24/7 service',
       'Car trapped or door stuck open goes first',
       'Common emergency parts on the truck',
       'Written price before work starts',
@@ -1773,7 +1771,7 @@ export const services = [
       metaTitle: 'Emergency Garage Door Repair - BSD Garage Door',
       metaDescription:
         'Need Emergency Garage Door Repair? BSD Garage Door handles stuck doors, sudden failures, and urgent garage door problems. Get prompt help today.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/emergency-services/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/emergency-services/',
       heroImage: 'emergency-services-hero.webp',
       heroKicker: 'Franklin & MetroWest emergency service',
       introImage: 'sv-emergency-services',
@@ -1784,7 +1782,7 @@ export const services = [
         heading: 'Get Urgent Garage Door Problems Addressed Before They Disrupt Your Day',
         body: [
           'A garage door that fails without warning can bring the day to a halt — a car trapped inside, a door stuck open, or a spring snapped at night. Focused emergency repair gets urgent problems addressed quickly so you have safe, dependable access back.',
-          'We run 24-hour service Sunday through Thursday and will tell you on the phone whether the problem is urgent or it can wait until morning. Common emergency parts ride on the truck, so many calls are made safe or fully repaired the same visit, with any larger fix priced in writing first.',
+          'We run 24/7 service and will tell you on the phone whether the problem is urgent or it can wait until morning. Common emergency parts ride on the truck, so many calls are made safe or fully repaired the same visit, with any larger fix priced in writing first.',
         ],
       },
 
@@ -1824,8 +1822,8 @@ export const services = [
         items: [
           {
             icon: 'Phone',
-            title: '24-hour service Sun–Thu',
-            text: 'We run 24-hour service Sunday through Thursday and will tell you on the phone whether the problem is urgent or it can wait until morning.',
+            title: '24/7 service',
+            text: 'We run 24/7 service and will tell you on the phone whether the problem is urgent or it can wait until morning.',
           },
           {
             icon: 'Bolt',
@@ -1929,7 +1927,7 @@ export const services = [
       metaTitle: 'Service and Maintenance - BSD Garage Door',
       metaDescription:
         'BSD Garage Door provides Service and Maintenance for garage door upkeep, performance checks, wear detection, and operating issues. Schedule service today.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/service-and-maintenance/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/service-and-maintenance/',
       heroKicker: 'Franklin & MetroWest maintenance specialists',
       introImage: 'sv-service-and-maintenance',
       heroSub:
@@ -2085,7 +2083,7 @@ export const services = [
       metaTitle: 'Garage Door Fix - BSD Garage Door',
       metaDescription:
         'Need a Garage Door Fix? BSD Garage Door diagnoses and repairs sticking, stalling, and unresponsive garage doors across Franklin and MetroWest. Call today.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/garage-door-fix/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/garage-door-fix/',
       heroKicker: 'Franklin & MetroWest garage door repair',
       heroSub:
         'Get everyday garage door problems fixed with practical, on-site repairs that target the real cause and restore smooth, dependable operation.',
@@ -2234,7 +2232,7 @@ export const services = [
       metaTitle: 'Garage Door Sensor Repair - BSD Garage Door',
       metaDescription:
         'Need Garage Door Sensor Repair? BSD Garage Door realigns and tests safety photo-eyes so your door closes reliably. Restore safe operation — call today.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/garage-door-sensor-repair/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/garage-door-sensor-repair/',
       heroImage: 'garage-door-sensor-repair-hero.webp',
       heroKicker: 'Franklin & MetroWest opener specialists',
       heroSub:
@@ -2387,7 +2385,7 @@ export const services = [
       metaTitle: 'Garage Door Keypad Installation - BSD Garage Door',
       metaDescription:
         'Need Garage Door Keypad Installation? BSD Garage Door fits and programs wireless entry keypads for convenient keyless access. Call to schedule today.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/garage-door-keypad-installation/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/garage-door-keypad-installation/',
       heroKicker: 'Franklin & MetroWest opener specialists',
       heroSub:
         'Add convenient keyless entry with professional garage door keypad installation — fitted, programmed, and tested to work reliably with your opener.',
@@ -2537,7 +2535,7 @@ export const services = [
       metaTitle: 'Garage Door Remote Replacement - BSD Garage Door',
       metaDescription:
         'Need Garage Door Remote Replacement? BSD Garage Door supplies and programs compatible remotes for lost or failing controls. Restore easy access — call today.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/garage-door-remote-replacement/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/garage-door-remote-replacement/',
       heroKicker: 'Franklin & MetroWest opener specialists',
       heroSub:
         'Get back easy, one-touch access with garage door remote replacement — a compatible remote supplied, programmed to your opener, and range-tested.',
@@ -2686,7 +2684,7 @@ export const services = [
       metaTitle: 'Commercial Garage Door Repair - BSD Garage Door',
       metaDescription:
         'Need Commercial Garage Door Repair? BSD Garage Door repairs rolling, sectional, and overhead commercial doors to keep your business moving. Call today.',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/services/commercial-garage-door-repair/',
+      canonicalUrl: 'https://bsdgaragedoor.com/services/commercial-garage-door-repair/',
       heroImage: 'commercial-garage-door-repair-hero.webp',
       heroKicker: 'Franklin & MetroWest commercial service',
       heroSub:
@@ -2842,7 +2840,7 @@ export const areas = [
       metaTitle: 'Garage Door Repair in Bellingham - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Bellingham? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/service-areas/bellingham/',
+      canonicalUrl: 'https://bsdgaragedoor.com/service-areas/bellingham/',
       heroSub:
         'Fast, dependable Garage Door Repair in Bellingham, MA - from snapped springs to off-track doors and failing openers, our local technicians restore safe, smooth operation, usually the same day.',
 
@@ -2977,7 +2975,7 @@ export const areas = [
       metaTitle: 'Garage Door Repair in Medway - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Medway? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/service-areas/medway/',
+      canonicalUrl: 'https://bsdgaragedoor.com/service-areas/medway/',
       heroSub:
         'Dependable Garage Door Repair in Medway, MA - from broken springs and worn rollers to opener faults and off-track doors, our technicians restore safe, smooth operation on carriage-style and modern steel doors alike.',
 
@@ -3111,7 +3109,7 @@ export const areas = [
       metaTitle: 'Garage Door Repair in Wrentham - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Wrentham? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/service-areas/wrentham/',
+      canonicalUrl: 'https://bsdgaragedoor.com/service-areas/wrentham/',
       heroSub:
         'Dependable Garage Door Repair in Wrentham, MA - from emergency repairs and broken springs to opener faults and new installations, our technicians restore safe, smooth operation for homes and businesses.',
 
@@ -3245,7 +3243,7 @@ export const areas = [
       metaTitle: 'Garage Door Repair in Norfolk - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Norfolk? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/service-areas/norfolk/',
+      canonicalUrl: 'https://bsdgaragedoor.com/service-areas/norfolk/',
       heroSub:
         'Dependable Garage Door Repair in Norfolk, MA - from broken springs and openers to uneven, noisy doors on homes, barns and workshops, our technicians restore safe, smooth operation.',
 
@@ -3379,7 +3377,7 @@ export const areas = [
       metaTitle: 'Garage Door Repair in Millis - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Millis? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/service-areas/millis/',
+      canonicalUrl: 'https://bsdgaragedoor.com/service-areas/millis/',
       heroSub:
         'Dependable Garage Door Repair in Millis, MA - from broken torsion springs and worn weather seals to noisy doors and opener faults, our technicians keep your garage running safely through every season.',
 
@@ -3513,7 +3511,7 @@ export const areas = [
       metaTitle: 'Garage Door Repair in Foxborough - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Foxborough? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/service-areas/foxborough/',
+      canonicalUrl: 'https://bsdgaragedoor.com/service-areas/foxborough/',
       heroSub:
         'Reliable Garage Door Repair in Foxborough, MA - from broken springs and worn openers to off-track doors and full replacements, our technicians restore safe, smooth operation for homes and businesses.',
 
@@ -3647,7 +3645,7 @@ export const areas = [
       metaTitle: 'Garage Door Repair in Milford - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Milford? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/service-areas/milford/',
+      canonicalUrl: 'https://bsdgaragedoor.com/service-areas/milford/',
       heroSub:
         'Dependable Garage Door Repair in Milford, MA for homes and businesses - from broken springs and openers to rolling steel and dock doors, our technicians restore safe, smooth operation across the town.',
 
@@ -3781,7 +3779,7 @@ export const areas = [
       metaTitle: 'Garage Door Repair in Plainville - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Plainville? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/service-areas/plainville/',
+      canonicalUrl: 'https://bsdgaragedoor.com/service-areas/plainville/',
       heroSub:
         'Dependable Garage Door Repair in Plainville, MA for homes and businesses - from broken springs and openers to damaged panels and off-track doors, our technicians restore safe, smooth operation.',
 
@@ -3915,7 +3913,7 @@ export const areas = [
       metaTitle: 'Garage Door Repair in Hopedale - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Hopedale? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/service-areas/hopedale/',
+      canonicalUrl: 'https://bsdgaragedoor.com/service-areas/hopedale/',
       heroSub:
         'Dependable Garage Door Repair in Hopedale, MA - from broken springs and worn rollers to opener faults and aging doors, our technicians restore safe, smooth operation and give honest repair-or-replace advice.',
 
@@ -4049,7 +4047,7 @@ export const areas = [
       metaTitle: 'Garage Door Repair in Walpole - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Walpole? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/service-areas/walpole/',
+      canonicalUrl: 'https://bsdgaragedoor.com/service-areas/walpole/',
       heroSub:
         'Dependable Garage Door Repair in Walpole, MA - from broken springs and openers to noisy or damaged doors, our technicians restore safe, smooth operation for homes and businesses.',
 
@@ -4183,7 +4181,7 @@ export const areas = [
       metaTitle: 'Garage Door Repair in Attleboro - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Attleboro? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/service-areas/attleboro/',
+      canonicalUrl: 'https://bsdgaragedoor.com/service-areas/attleboro/',
       heroSub:
         'Dependable Garage Door Repair in Attleboro, MA for homes and businesses - from broken springs and worn openers to off-track doors, our technicians restore safe, smooth operation across the city.',
 
@@ -4317,7 +4315,7 @@ export const areas = [
       metaTitle: 'Garage Door Repair in Mansfield - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Mansfield? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
-      canonicalUrl: 'https://bsdgaragedoorllc.com/service-areas/mansfield/',
+      canonicalUrl: 'https://bsdgaragedoor.com/service-areas/mansfield/',
       heroSub:
         'Dependable Garage Door Repair in Mansfield, MA - from broken springs and worn openers to off-track doors and replacements, our technicians restore safe, smooth operation for homes and businesses.',
 
@@ -4484,7 +4482,7 @@ export const googleReviews = [
 export const homeFaqs = [
   {
     q: 'How quickly can you get to me?',
-    a: 'We run 24-hour service Sunday through Thursday, so emergencies - a door stuck open, a car trapped, a snapped spring - go out as soon as a technician is free. Friday we are on the road 7am to 5pm. Saturday we are closed.',
+    a: 'We run 24/7 service, so emergencies - a door stuck open, a car trapped, a snapped spring - go out as soon as a technician is free, any day and any hour.',
   },
   {
     q: 'Is the estimate really free?',
@@ -4505,8 +4503,8 @@ export const homeFaqs = [
 ];
 
 export const trustPoints = [
-  { label: 'Availability', value: '24 hr', note: 'Sun through Thu' },
-  { label: 'Open', value: 'Sun-Fri', note: 'Six days a week' },
+  { label: 'Availability', value: '24/7', note: 'Every day' },
+  { label: 'Open', value: '7 days', note: 'Every day of the week' },
   { label: 'Typical response', value: 'Same day', note: 'When we can' },
   { label: 'Pricing', value: 'Upfront', note: 'Before work begins' },
 ];

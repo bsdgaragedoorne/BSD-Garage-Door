@@ -11,7 +11,7 @@
   NODE_VERSION = "20"
   # Set SITE_URL in Netlify UI once the real domain is live; it drives
   # canonicals, sitemap.xml and robots.txt.
-  SITE_URL = "https://bsdgaragedoorllc.com"
+  SITE_URL = "https://bsdgaragedoor.com"
 
 [[headers]]
   for = "/*"
