@@ -171,7 +171,7 @@ function ProcessBar() {
               >
                 <span className="pbar__dot">{String(n).padStart(2, '0')}</span>
                 <div className="pbar__copy">
-                  <h3>{s.title}</h3>
+                  <div className="pbar__title">{s.title}</div>
                   <p>{s.body}</p>
                 </div>
               </li>
@@ -219,11 +219,11 @@ export function CtaBand({
             decoding="async"
           />
           <div className="ctaband__copy">
-            <h2 className="ctaband__title">
+            <div className="ctaband__title">
               {lines.map((l) => (
                 <span key={l}>{l}</span>
               ))}
-            </h2>
+            </div>
             <p>{body}</p>
             <Link to="/contact" className="btn btn--ghost">
               Contact Us

@@ -17,9 +17,9 @@ function project(items) {
 }
 
 const corridors = [
-  ['hopedale', 'milford', 'bellingham', 'franklin', 'wrentham', 'foxborough', 'mansfield'],
+  ['hopedale', 'milford', 'bellingham', 'wrentham', 'foxborough', 'mansfield'],
   ['milford', 'medway', 'millis', 'norfolk', 'walpole'],
-  ['bellingham', 'franklin', 'norfolk'],
+  ['bellingham', 'norfolk'],
   ['plainville', 'wrentham', 'foxborough'],
   ['attleboro', 'plainville', 'mansfield'],
 ];
@@ -106,7 +106,7 @@ export default function AreaMap() {
       {pins.map((a) => (
         <Link
           key={a.slug}
-          className={`areamap__pin${a.slug === 'franklin' ? ' is-home' : ''}`}
+          className="areamap__pin"
           to={`/service-areas/${a.slug}`}
           style={{ left: `${a.x}%`, top: `${a.y}%` }}
           aria-label={`${a.name} garage door service${a.distance ? `, ${a.distance}` : ''}`}

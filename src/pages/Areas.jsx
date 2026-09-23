@@ -86,6 +86,21 @@ export function AreasIndex() {
         </div>
       </section>
 
+      <section className="section areamap-embed" aria-label={`${biz.name} location on Google Maps`}>
+        <div className="wrap">
+          <iframe
+            className="areamap-embed__frame"
+            title={`${biz.name} on Google Maps`}
+            src={biz.mapEmbedUrl}
+            width="800"
+            height="450"
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+          />
+        </div>
+      </section>
+
       <ServiceRail />
     </>
   );

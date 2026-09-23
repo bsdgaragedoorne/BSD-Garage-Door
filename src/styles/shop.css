@@ -763,7 +763,7 @@ body { background: #fff; }
   -webkit-backdrop-filter: blur(18px) saturate(1.15);
 }
 
-.chero__form h2 { color: #fff; }
+.chero__form .chero__form-title { color: #fff; }
 .chero__form .fxeyebrow { color: var(--accent); }
 
 .chero__form .form--bare .field input,
@@ -1772,6 +1772,7 @@ body { background: #fff; }
   display: block;
   margin: 0 0 0.7rem;
   color: #fff !important;
+  font-family: var(--display);
   font-size: clamp(1.85rem, 3.6vw, 3.15rem);
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -1998,6 +1999,22 @@ a.svbox {
 
 .areasec {
   background: #fff;
+}
+
+/* --- Service-areas page: embedded Google map ---------------------------- */
+.areamap-embed {
+  background: #fff;
+  padding-top: 0;
+}
+
+.areamap-embed__frame {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: clamp(300px, 42vw, 440px);
+  border: 0;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 54px -32px rgba(10, 10, 10, 0.5);
 }
 
 a.areacard {
@@ -2394,6 +2411,11 @@ a.areacard {
   .footer__head {
     flex-direction: column;
     text-align: center;
+  }
+
+  /* Hide the Services link column in the footer on mobile. */
+  .footer__col--services {
+    display: none;
   }
 }
 
@@ -3030,7 +3052,7 @@ a.areacard {
   gap: 1rem 1.5rem;
 }
 
-.grev h2 {
+.grev__heading {
   margin: 0;
   color: #111;
   font-family: var(--display);
@@ -3041,7 +3063,7 @@ a.areacard {
   text-transform: none !important;
 }
 
-.grev h2 span {
+.grev__heading span {
   color: var(--accent);
 }
 
@@ -3137,12 +3159,13 @@ a.areacard {
   font-weight: 800;
 }
 
-.grev__who h3 {
+.grev__who .grev__name {
   margin: 0 0 0.15rem;
   color: #111;
   font-family: var(--body);
   font-size: 1.02rem;
   font-weight: 700;
+  line-height: 1.03;
   letter-spacing: -0.01em;
   text-transform: none;
 }
@@ -3185,6 +3208,20 @@ a.areacard {
 
 .grev__stars svg.is-on {
   fill: #f5b942;
+}
+
+/* Google attribution link on each review card (required when showing live
+   Google reviews). Kept small and muted so the card design is unchanged. */
+.grev__source {
+  margin-top: 0.85rem;
+  align-self: flex-start;
+  color: #7a4a4a;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.grev__source:hover {
+  color: var(--accent);
 }
 
 @media (min-width: 840px) {
@@ -3273,15 +3310,17 @@ a.areacard {
   text-align: center;
 }
 
-.cmap__card h2 {
+.cmap__card .cmap__title {
   margin: 0 0 1.45rem;
   color: #111;
   font-family: var(--display);
   font-size: clamp(1.7rem, 3.2vw, 2.35rem);
   font-weight: 800;
+  line-height: 1.03;
   letter-spacing: -0.03em;
   text-align: center;
   text-transform: none !important;
+  text-wrap: balance;
 }
 
 .form--contact .field {
@@ -4239,9 +4278,15 @@ a.areacard {
   transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
-.pbar__copy h3 {
+.pbar__copy .pbar__title {
   margin: 0 0 0.4rem;
+  color: #fff;
+  font-family: var(--display);
   font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.03;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
 }
 
 .pbar__copy p {
@@ -4337,7 +4382,7 @@ a.areacard {
     padding: 1.15rem 1rem 1.2rem;
   }
 
-  .pbar__copy h3 {
+  .pbar__copy .pbar__title {
     display: flex;
     align-items: flex-start;
     justify-content: center;

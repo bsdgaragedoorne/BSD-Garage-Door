@@ -1,6 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Reveal from './Reveal.jsx';
-import { biz, googleReviews } from '../data/site.js';
+import { biz, googleReviews, googleRating } from '../data/site.js';
+
+// Fallback dataset: the existing hardcoded testimonials, filtered exactly as
+// before. Rendered on the server/prerender so the section is never empty, and
+// kept as the fallback if the live Google fetch fails.
+const FALLBACK_REVIEWS = googleReviews.filter((review) => review.rating >= 5);
+
+/** First letters of the first two words of a name, e.g. "Rick Almeida" -> "RA". */
+function initialsFrom(name) {
+  return (name || '')
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word[0].toUpperCase())
+    .join('');
+}
 
 function QuoteMark() {
   return (
@@ -29,6 +44,8 @@ function Stars({ value }) {
 }
 
 function ReviewCard({ review }) {
+  // Per-review Google link for attribution; fall back to the business listing.
+  const sourceUrl = review.googleMapsUri || biz.mapUrl;
   return (
     <article className="grev__card">
       <div className="grev__who">
@@ -40,27 +57,76 @@ function ReviewCard({ review }) {
           </span>
         )}
         <div>
-          <h3>{review.name}</h3>
+          <div className="grev__name">{review.name}</div>
           <p>{review.role}</p>
         </div>
         <QuoteMark />
       </div>
       <p className="grev__text">{review.text}</p>
       <Stars value={review.rating} />
+      <a className="grev__source" href={sourceUrl} target="_blank" rel="noreferrer">
+        View on Google
+      </a>
     </article>
   );
 }
 
 export default function GoogleReviews() {
+  // Start from the hardcoded fallback so prerendered HTML is populated.
+  const [reviews, setReviews] = useState(FALLBACK_REVIEWS);
+  const [rating, setRating] = useState(googleRating.value);
+  const [count, setCount] = useState(googleRating.count);
   const [index, setIndex] = useState(0);
-  const reviews = googleReviews.filter((review) => review.rating >= 5);
+
+  // After hydration, try to load live Google reviews. Any failure keeps the
+  // existing fallback data on screen.
+  useEffect(() => {
+    let cancelled = false;
+    fetch('/.netlify/functions/reviews')
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error('reviews fetch failed'))))
+      .then((data) => {
+        if (cancelled || !data) return;
+
+        const live = Array.isArray(data.reviews)
+          ? data.reviews
+              .filter((review) => (review.rating ?? 0) >= 5)
+              .map((review) => ({
+                name: review.name,
+                photo: review.photo,
+                initials: initialsFrom(review.name),
+                rating: review.rating,
+                text: review.text,
+                // Relative publish time ("2 months ago") occupies the existing
+                // role/date slot. We never invent a service/job type.
+                role: review.date,
+                googleMapsUri: review.googleMapsUri,
+              }))
+          : [];
+
+        if (live.length > 0) {
+          setReviews(live);
+          setIndex(0);
+        }
+        if (typeof data.rating === 'number') setRating(data.rating);
+        if (typeof data.userRatingCount === 'number') setCount(data.userRatingCount);
+      })
+      .catch(() => {
+        /* Keep the fallback reviews already on screen. */
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const total = reviews.length;
   const visible = total
-    ? [reviews[index], ...(total > 1 ? [reviews[(index + 1) % total]] : [])]
+    ? [reviews[index % total], ...(total > 1 ? [reviews[(index + 1) % total]] : [])]
     : [];
 
   const prev = () => setIndex((i) => (i - 1 + total) % total);
   const next = () => setIndex((i) => (i + 1) % total);
+
+  const scoreText = `${Number(rating).toFixed(1)} ★ · ${count} reviews on Google`;
 
   return (
     <section className="section grev" id="reviews" aria-labelledby="grev-title">
@@ -69,9 +135,9 @@ export default function GoogleReviews() {
           <div className="grev__head">
             <p className="grev__kicker">Google reviews</p>
             <div className="grev__title">
-              <h2 id="grev-title">
+              <div id="grev-title" className="grev__heading">
                 Keeping Your Door <span>Strong</span>
-              </h2>
+              </div>
               <div className="grev__nav">
                 <button type="button" className="grev__arrow" onClick={prev} aria-label="Previous reviews">
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -86,13 +152,13 @@ export default function GoogleReviews() {
               </div>
             </div>
             <a className="grev__score" href={biz.mapUrl} target="_blank" rel="noreferrer">
-              5 star reviews on Google
+              {scoreText}
             </a>
           </div>
 
           <div className="grev__grid">
-            {visible.map((review) => (
-              <ReviewCard key={review.name} review={review} />
+            {visible.map((review, i) => (
+              <ReviewCard key={`${i}-${review.name}`} review={review} />
             ))}
           </div>
         </Reveal>

@@ -2,6 +2,11 @@
   command = "npm run build"
   publish = "dist"
 
+# Serverless functions live here. reviews.js proxies the Google Places API so the
+# GOOGLE_PLACES_API_KEY (set in the Netlify UI) is never exposed to the browser.
+[functions]
+  directory = "netlify/functions"
+
 [build.environment]
   NODE_VERSION = "20"
   # Set SITE_URL in Netlify UI once the real domain is live; it drives

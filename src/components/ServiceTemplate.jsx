@@ -289,9 +289,8 @@ export default function ServiceTemplate({ service }) {
       })}
 
       {/* 8 — Service areas (shared LocationBand — same section as the location
-              pages and the rest of the site). Franklin is excluded from the town
-              list, the same way the Franklin location page drops its own link. */}
-      <LocationBand excludeSlug="franklin" />
+              pages and the rest of the site). */}
+      <LocationBand />
 
       {/* 9 — FAQs (shared homepage accordion, fed service-specific Q&A + FAQ schema) */}
       {faqs.length > 0 && (

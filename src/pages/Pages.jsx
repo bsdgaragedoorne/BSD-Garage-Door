@@ -221,7 +221,7 @@ export function Contact() {
         <div className="wrap cmap__formwrap">
           <div className="cmap__card">
             <p className="cmap__kicker">Contact us</p>
-            <h2 id="cmap-title">Get In Touch</h2>
+            <div id="cmap-title" className="cmap__title">Get In Touch</div>
             <LeadForm formName="contact" contact />
           </div>
         </div>

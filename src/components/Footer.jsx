@@ -20,9 +20,9 @@ export default function Footer() {
     <footer className="footer">
       <div className="wrap">
         <div className="footer__head">
-          <h2 className="footer__title">
+          <div className="footer__title">
             Get In <span>Touch</span>
-          </h2>
+          </div>
           <Link to="/contact" className="footer__go" aria-label="Go to contact page">
             <ArrowUpRight size={22} />
           </Link>
@@ -59,7 +59,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="footer__col">
+          <div className="footer__col footer__col--services">
             <p className="footer__h">
               <Link to="/services">Services</Link>
             </p>
@@ -82,9 +82,9 @@ export default function Footer() {
               <span className="footer__nap-row">
                 <Pin size={15} />
                 <a href={biz.mapUrl} target="_blank" rel="noreferrer">
-                  {biz.street}
+                  {biz.street},
                   <br />
-                  {biz.city}, {biz.state} {biz.zip}
+                  {biz.city}, {biz.state} {biz.zip}, {biz.country}
                 </a>
               </span>
               <span className="footer__nap-row">

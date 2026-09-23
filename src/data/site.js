@@ -19,11 +19,15 @@ export const biz = {
   state: 'MA',
   stateFull: 'Massachusetts',
   zip: '02038',
+  country: 'United States',
   latitude: 42.0687962,
   longitude: -71.4117011,
   mapUrl: 'https://maps.app.goo.gl/WuUEzftgNbdVZ3mC8',
   mapEmbedUrl:
     'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11800!2d-71.4117011!3d42.0687962!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e46fea3101926f%3A0x7292bc46ae8c73f!2sBSD%20Garage%20Door!5e0!3m2!1sen!2sus!4v1710000000000',
+  // Google Business Profile Place ID (Places API New). Drives the live reviews
+  // fetched server-side by netlify/functions/reviews.js.
+  placeId: 'ChIJb5IBMepv5IkRP8foasQrKQc',
   hours: 'Sun-Thu 24 hours · Fri 7am-5pm · Sat closed',
   hoursShort: '24hrs Sun-Thu · Fri 7am-5pm',
   hoursList: [
@@ -35,7 +39,7 @@ export const biz = {
   radiusMiles: 20,
 };
 
-export const addressOneLine = `${biz.street}, ${biz.city}, ${biz.state} ${biz.zip}`;
+export const addressOneLine = `${biz.street}, ${biz.city}, ${biz.state} ${biz.zip}, ${biz.country}`;
 export const addressShort = `${biz.city}, ${biz.state}`;
 
 export const services = [
@@ -2818,18 +2822,6 @@ export const services = [
 export const getService = (slug) => services.find((s) => s.slug === slug);
 
 export const areas = [
-  {
-    slug: 'franklin',
-    name: 'Franklin',
-    lat: 42.0834,
-    lng: -71.3967,
-    distance: 'Home base',
-    blurb:
-      'Our shop sits on Washington Street, so downtown Franklin, the Forge Park corridor and the neighborhoods off King Street get our fastest response times.',
-    note:
-      'Franklin mixes older capes with newer subdivisions. We carry both standard torsion hardware and the quieter belt-drive openers a lot of newer HOAs prefer.',
-    landmarks: ['Downtown Franklin', 'Forge Park', 'King Street', 'Franklin State Forest', 'Dean College area'],
-  },
   {
     slug: 'bellingham',
     name: 'Bellingham',

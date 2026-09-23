@@ -58,7 +58,7 @@ export default function HeroSlider() {
 
         <div className="chero__form" id="book">
           <div className="fxeyebrow">Book online</div>
-          <h2>Need your door checked today?</h2>
+          <div className="chero__form-title">Need your door checked today?</div>
           <LeadForm formName="contact" bare />
         </div>
 
