@@ -8,7 +8,7 @@ const encode = (data) =>
     .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
     .join('&');
 
-const empty = { name: '', phone: '', email: '', address: '', service: '', date: '', message: '' };
+const empty = { name: '', phone: '', email: '', address: '', service: '', message: '' };
 
 /**
  * Posts to Netlify Forms. The matching static form lives in
@@ -58,7 +58,6 @@ export default function LeadForm({
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(values.email)) e.email = 'Enter a valid email address.';
     if (!contact && values.address.trim().length < 4) e.address = 'Enter the address where the door is.';
     if (!values.service) e.service = 'Choose the service you need.';
-    if (!compact && values.message.trim().length < 5) e.message = 'Tell us briefly what the door is doing.';
     return e;
   };
 
@@ -73,10 +72,14 @@ export default function LeadForm({
     }
     setState('sending');
     try {
-      const res = await fetch('/__forms.html', {
+      const payload = { 'form-name': formName, 'bot-field': '' };
+      Object.entries(values).forEach(([k, v]) => {
+        if (String(v).trim()) payload[k] = v;
+      });
+      const res = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': formName, 'bot-field': '', ...values }),
+        body: encode(payload),
       });
       // fetch only rejects on a network failure, so a 404 or 501 still lands
       // here. Without this check the form reported success locally, where
@@ -109,7 +112,7 @@ export default function LeadForm({
           email: 'Your email *',
           phone: 'Phone number *',
           address: 'Address *',
-          message: 'Describe the problem *',
+          message: 'Describe the problem',
         }
       : {
           name: 'John Doe',
@@ -172,12 +175,15 @@ export default function LeadForm({
       name={formName}
       onSubmit={submit}
       noValidate
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
       className={contact ? 'form--contact' : bare ? 'form--bare' : compact ? 'form--modal' : undefined}
     >
       <input type="hidden" name="form-name" value={formName} />
-      <p className="hp">
+      <p className="hp" aria-hidden="true">
         <label>
-          Do not fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+          Leave blank
+          <input name="bot-field" tabIndex={-1} autoComplete="off" />
         </label>
       </p>
 
@@ -306,24 +312,7 @@ export default function LeadForm({
               {errors.address && <span className="field__error">{errors.address}</span>}
             </div>
           </div>
-          <div className={bare ? 'field-row field-row--2' : undefined}>
-            {serviceField}
-            {bare && (
-              <div className={fieldClass('date')}>
-                <label className={lab} htmlFor={`${formName}-date`}>
-                  Preferred date
-                </label>
-                <input
-                  id={`${formName}-date`}
-                  name="date"
-                  type="date"
-                  value={values.date}
-                  onChange={set('date')}
-                  min={new Date().toISOString().slice(0, 10)}
-                />
-              </div>
-            )}
-          </div>
+          {serviceField}
         </>
       )}
 
