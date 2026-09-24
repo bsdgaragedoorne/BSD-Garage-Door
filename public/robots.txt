@@ -3,4 +3,4 @@ Allow: /
 Disallow: /privacy-policy
 Disallow: /terms-and-conditions
 
-Sitemap: https://bsdgaragedoor.com/sitemap.xml
+Sitemap: https://bsdgaragedoorservices.com/sitemap.xml

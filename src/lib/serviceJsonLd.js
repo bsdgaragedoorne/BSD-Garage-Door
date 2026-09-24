@@ -8,7 +8,7 @@
 // (the springs schema hard-codes it too). This keeps every service schema on a
 // single, consistent domain and is independent of the SITE_URL config, which is
 // still being confirmed separately.
-const DOMAIN = 'https://bsdgaragedoor.com';
+const DOMAIN = 'https://bsdgaragedoorservices.com';
 
 // Provider block — identical values to the approved reference and the site's
 // business data (name, phone, address). Shared so every service schema carries

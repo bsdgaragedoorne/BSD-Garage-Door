@@ -19,7 +19,7 @@ export default function Home() {
         title="Garage Door Repair in Franklin - BSD Garage Door"
         description="Looking for Garage Door Repair in Franklin? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!"
         path="/"
-        canonicalUrl="https://bsdgaragedoor.com/"
+        canonicalUrl="https://bsdgaragedoorservices.com/"
       />
 
       {/* Homepage LocalBusiness structured data (custom JSON-LD) */}

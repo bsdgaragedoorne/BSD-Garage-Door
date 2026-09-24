@@ -13,6 +13,6 @@ npm run preview
 
 ## Content
 
-Business details live in `src/data/site.js`. `SITE_URL` is set to `https://bsdgaragedoor.com` - change it there and in Netlify env vars when the real domain is pointed.
+Business details live in `src/data/site.js`. `SITE_URL` is set to `https://bsdgaragedoorservices.com` - change it there and in Netlify env vars when the real domain is pointed.
 
 Form notifications: Netlify → Forms → `bsdgaragedoorne@gmail.com`.

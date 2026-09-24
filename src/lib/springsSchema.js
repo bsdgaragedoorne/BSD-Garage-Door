@@ -7,14 +7,14 @@ export const springsServiceSchema = {
   '@graph': [
     {
       '@type': 'Service',
-      '@id': 'https://bsdgaragedoor.com/services/springs-replacement/#service',
+      '@id': 'https://bsdgaragedoorservices.com/services/springs-replacement/#service',
       name: 'Garage Door Spring Replacement',
       description:
         'Professional replacement of worn or broken garage door springs to restore safe, balanced, and reliable door operation.',
       provider: {
         '@type': 'LocalBusiness',
         name: 'BSD Garage Door',
-        url: 'https://bsdgaragedoor.com/',
+        url: 'https://bsdgaragedoorservices.com/',
         telephone: '+18432793345',
         address: {
           '@type': 'PostalAddress',
@@ -25,11 +25,11 @@ export const springsServiceSchema = {
           addressCountry: 'US',
         },
       },
-      image: 'https://bsdgaragedoor.com/img/sv-springs-replacement-720.webp',
+      image: 'https://bsdgaragedoorservices.com/img/sv-springs-replacement-720.webp',
     },
     {
       '@type': 'FAQPage',
-      '@id': 'https://bsdgaragedoor.com/services/springs-replacement/#faq',
+      '@id': 'https://bsdgaragedoorservices.com/services/springs-replacement/#faq',
       mainEntity: [
         {
           '@type': 'Question',
@@ -75,25 +75,25 @@ export const springsServiceSchema = {
     },
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://bsdgaragedoor.com/services/springs-replacement/#breadcrumb',
+      '@id': 'https://bsdgaragedoorservices.com/services/springs-replacement/#breadcrumb',
       itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://bsdgaragedoor.com/',
+          item: 'https://bsdgaragedoorservices.com/',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Services',
-          item: 'https://bsdgaragedoor.com/services/',
+          item: 'https://bsdgaragedoorservices.com/services/',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Garage Door Spring Replacement',
-          item: 'https://bsdgaragedoor.com/services/springs-replacement/',
+          item: 'https://bsdgaragedoorservices.com/services/springs-replacement/',
         },
       ],
     },

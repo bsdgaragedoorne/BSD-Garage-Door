@@ -21,7 +21,7 @@ export function ServicesIndex() {
         title="Garage Door Services in Franklin, MA | BSD Garage Door"
         description="Garage door services in Franklin, MA: repair, spring replacement, opener service, maintenance and new door installation. Free estimates, call us today!"
         path="/services"
-        canonicalUrl="https://bsdgaragedoor.com/services/"
+        canonicalUrl="https://bsdgaragedoorservices.com/services/"
       />
 
       <section className="pagehead">
