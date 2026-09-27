@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="Garage Door Repair in Franklin - BSD Garage Door"
+        title="Garage Door Repair in Franklin, MA - BSD Garage Door"
         description="Looking for Garage Door Repair in Franklin? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!"
         path="/"
         canonicalUrl="https://bsdgaragedoorservices.com/"

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Reveal from './Reveal.jsx';
 import ReviewWidget from './ReviewWidget.jsx';
 import { biz, googleReviews, googleRating } from '../data/site.js';
@@ -78,44 +78,79 @@ export default function GoogleReviews() {
   const [rating, setRating] = useState(googleRating.value);
   const [count, setCount] = useState(googleRating.count);
   const [index, setIndex] = useState(0);
+  const sectionRef = useRef(null);
 
-  // After hydration, try to load live Google reviews. Any failure keeps the
-  // existing fallback data on screen.
+  // After hydration, load live Google reviews — but deferred so the request
+  // never competes with the initial hero render. Any failure keeps the existing
+  // fallback data on screen.
   useEffect(() => {
     let cancelled = false;
-    fetch('/.netlify/functions/reviews')
-      .then((res) => (res.ok ? res.json() : Promise.reject(new Error('reviews fetch failed'))))
-      .then((data) => {
-        if (cancelled || !data) return;
+    let io;
+    let idleId;
+    let usedIdleCallback = false;
 
-        const live = Array.isArray(data.reviews)
-          ? data.reviews
-              .filter((review) => (review.rating ?? 0) >= 5)
-              .map((review) => ({
-                name: review.name,
-                photo: review.photo,
-                initials: initialsFrom(review.name),
-                rating: review.rating,
-                text: review.text,
-                // Relative publish time ("2 months ago") occupies the existing
-                // role/date slot. We never invent a service/job type.
-                role: review.date,
-                googleMapsUri: review.googleMapsUri,
-              }))
-          : [];
+    const load = () => {
+      if (cancelled) return;
+      fetch('/.netlify/functions/reviews')
+        .then((res) => (res.ok ? res.json() : Promise.reject(new Error('reviews fetch failed'))))
+        .then((data) => {
+          if (cancelled || !data) return;
 
-        if (live.length > 0) {
-          setReviews(live);
-          setIndex(0);
-        }
-        if (typeof data.rating === 'number') setRating(data.rating);
-        if (typeof data.userRatingCount === 'number') setCount(data.userRatingCount);
-      })
-      .catch(() => {
-        /* Keep the fallback reviews already on screen. */
-      });
+          const live = Array.isArray(data.reviews)
+            ? data.reviews
+                .filter((review) => (review.rating ?? 0) >= 5)
+                .map((review) => ({
+                  name: review.name,
+                  photo: review.photo,
+                  initials: initialsFrom(review.name),
+                  rating: review.rating,
+                  text: review.text,
+                  // Relative publish time ("2 months ago") occupies the existing
+                  // role/date slot. We never invent a service/job type.
+                  role: review.date,
+                  googleMapsUri: review.googleMapsUri,
+                }))
+            : [];
+
+          if (live.length > 0) {
+            setReviews(live);
+            setIndex(0);
+          }
+          if (typeof data.rating === 'number') setRating(data.rating);
+          if (typeof data.userRatingCount === 'number') setCount(data.userRatingCount);
+        })
+        .catch(() => {
+          /* Keep the fallback reviews already on screen. */
+        });
+    };
+
+    const el = sectionRef.current;
+    if (el && 'IntersectionObserver' in window) {
+      // Prefer fetching only as the reviews section approaches the viewport.
+      io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            load();
+            io.disconnect();
+          }
+        },
+        { rootMargin: '300px 0px' }
+      );
+      io.observe(el);
+    } else if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      usedIdleCallback = true;
+      idleId = window.requestIdleCallback(load, { timeout: 3000 });
+    } else {
+      idleId = window.setTimeout(load, 1500);
+    }
+
     return () => {
       cancelled = true;
+      if (io) io.disconnect();
+      if (idleId != null) {
+        if (usedIdleCallback && 'cancelIdleCallback' in window) window.cancelIdleCallback(idleId);
+        else clearTimeout(idleId);
+      }
     };
   }, []);
 
@@ -130,7 +165,7 @@ export default function GoogleReviews() {
   const scoreText = `${Number(rating).toFixed(1)} ★ · ${count} reviews on Google`;
 
   return (
-    <section className="section grev" id="reviews" aria-labelledby="grev-title">
+    <section className="section grev" id="reviews" aria-labelledby="grev-title" ref={sectionRef}>
       <div className="wrap">
         <Reveal className="grev__panel">
           <div className="grev__head">

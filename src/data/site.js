@@ -2837,7 +2837,7 @@ export const areas = [
     // reference/first page; every other location keeps its original layout.
     page: {
       h1: 'Garage Door Repair in Bellingham, MA',
-      metaTitle: 'Garage Door Repair in Bellingham - BSD Garage Door',
+      metaTitle: 'Garage Door Repair in Bellingham, MA - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Bellingham? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
       canonicalUrl: 'https://bsdgaragedoorservices.com/service-areas/bellingham/',
@@ -2972,7 +2972,7 @@ export const areas = [
     // only areas carrying a `page` block use the template. Modeled on Bellingham.
     page: {
       h1: 'Garage Door Repair in Medway, MA',
-      metaTitle: 'Garage Door Repair in Medway - BSD Garage Door',
+      metaTitle: 'Garage Door Repair in Medway, MA - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Medway? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
       canonicalUrl: 'https://bsdgaragedoorservices.com/service-areas/medway/',
@@ -3106,7 +3106,7 @@ export const areas = [
     // only areas carrying a `page` block use the template. Modeled on Bellingham.
     page: {
       h1: 'Garage Door Repair in Wrentham, MA',
-      metaTitle: 'Garage Door Repair in Wrentham - BSD Garage Door',
+      metaTitle: 'Garage Door Repair in Wrentham, MA - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Wrentham? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
       canonicalUrl: 'https://bsdgaragedoorservices.com/service-areas/wrentham/',
@@ -3240,7 +3240,7 @@ export const areas = [
     // only areas carrying a `page` block use the template. Modeled on Bellingham.
     page: {
       h1: 'Garage Door Repair in Norfolk, MA',
-      metaTitle: 'Garage Door Repair in Norfolk - BSD Garage Door',
+      metaTitle: 'Garage Door Repair in Norfolk, MA - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Norfolk? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
       canonicalUrl: 'https://bsdgaragedoorservices.com/service-areas/norfolk/',
@@ -3374,7 +3374,7 @@ export const areas = [
     // only areas carrying a `page` block use the template. Modeled on Bellingham.
     page: {
       h1: 'Garage Door Repair in Millis, MA',
-      metaTitle: 'Garage Door Repair in Millis - BSD Garage Door',
+      metaTitle: 'Garage Door Repair in Millis, MA - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Millis? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
       canonicalUrl: 'https://bsdgaragedoorservices.com/service-areas/millis/',
@@ -3508,7 +3508,7 @@ export const areas = [
     // only areas carrying a `page` block use the template. Modeled on Bellingham.
     page: {
       h1: 'Garage Door Repair in Foxborough, MA',
-      metaTitle: 'Garage Door Repair in Foxborough - BSD Garage Door',
+      metaTitle: 'Garage Door Repair in Foxborough, MA - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Foxborough? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
       canonicalUrl: 'https://bsdgaragedoorservices.com/service-areas/foxborough/',
@@ -3642,7 +3642,7 @@ export const areas = [
     // only areas carrying a `page` block use the template. Modeled on Bellingham.
     page: {
       h1: 'Garage Door Repair in Milford, MA',
-      metaTitle: 'Garage Door Repair in Milford - BSD Garage Door',
+      metaTitle: 'Garage Door Repair in Milford, MA - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Milford? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
       canonicalUrl: 'https://bsdgaragedoorservices.com/service-areas/milford/',
@@ -3776,7 +3776,7 @@ export const areas = [
     // only areas carrying a `page` block use the template. Modeled on Bellingham.
     page: {
       h1: 'Garage Door Repair in Plainville, MA',
-      metaTitle: 'Garage Door Repair in Plainville - BSD Garage Door',
+      metaTitle: 'Garage Door Repair in Plainville, MA - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Plainville? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
       canonicalUrl: 'https://bsdgaragedoorservices.com/service-areas/plainville/',
@@ -3910,7 +3910,7 @@ export const areas = [
     // only areas carrying a `page` block use the template. Modeled on Bellingham.
     page: {
       h1: 'Garage Door Repair in Hopedale, MA',
-      metaTitle: 'Garage Door Repair in Hopedale - BSD Garage Door',
+      metaTitle: 'Garage Door Repair in Hopedale, MA - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Hopedale? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
       canonicalUrl: 'https://bsdgaragedoorservices.com/service-areas/hopedale/',
@@ -4044,7 +4044,7 @@ export const areas = [
     // only areas carrying a `page` block use the template. Modeled on Bellingham.
     page: {
       h1: 'Garage Door Repair in Walpole, MA',
-      metaTitle: 'Garage Door Repair in Walpole - BSD Garage Door',
+      metaTitle: 'Garage Door Repair in Walpole, MA - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Walpole? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
       canonicalUrl: 'https://bsdgaragedoorservices.com/service-areas/walpole/',
@@ -4178,7 +4178,7 @@ export const areas = [
     // only areas carrying a `page` block use the template. Modeled on Bellingham.
     page: {
       h1: 'Garage Door Repair in Attleboro, MA',
-      metaTitle: 'Garage Door Repair in Attleboro - BSD Garage Door',
+      metaTitle: 'Garage Door Repair in Attleboro, MA - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Attleboro? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
       canonicalUrl: 'https://bsdgaragedoorservices.com/service-areas/attleboro/',
@@ -4312,7 +4312,7 @@ export const areas = [
     // only areas carrying a `page` block use the template. Modeled on Bellingham.
     page: {
       h1: 'Garage Door Repair in Mansfield, MA',
-      metaTitle: 'Garage Door Repair in Mansfield - BSD Garage Door',
+      metaTitle: 'Garage Door Repair in Mansfield, MA - BSD Garage Door',
       metaDescription:
         'Looking for Garage Door Repair in Mansfield? BSD Garage Door handles broken garage door repairs, stuck doors, noisy doors and opener issues. Call today!',
       canonicalUrl: 'https://bsdgaragedoorservices.com/service-areas/mansfield/',

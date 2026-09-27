@@ -92,73 +92,106 @@ function useSlider(ref) {
     const el = ref.current;
     if (!el) return undefined;
 
-    const onScroll = () => measure();
-    const onResize = () => measure();
-    measure();
-    el.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onResize);
+    let started = false;
+    let rafId = 0;
+    const cleanups = [];
 
-    const onDown = (e) => {
-      if (e.pointerType === 'mouse' && e.button !== 0) return;
-      // Native touch scroll handles finger pans; still capture pen / mouse drag
-      if (e.pointerType === 'touch') return;
-      dragRef.current = { active: true, moved: false, x: e.clientX, scroll: el.scrollLeft };
-      el.classList.add('is-dragging');
-      el.setPointerCapture(e.pointerId);
-      pauseUntil.current = Date.now() + 8000;
-    };
-    const onMove = (e) => {
-      if (!dragRef.current.active) return;
-      const dx = e.clientX - dragRef.current.x;
-      if (Math.abs(dx) > 6) {
-        dragRef.current.moved = true;
-        setDragging(true);
+    // The rail is below the fold on every page that uses it, so its listeners,
+    // the initial measure() (a layout read) and the auto-scroll timer are held
+    // off the critical path until the section approaches the viewport.
+    const start = () => {
+      if (started) return;
+      started = true;
+
+      // Defer the first measure to a frame so it never forces a synchronous
+      // layout while the browser is still painting.
+      rafId = requestAnimationFrame(measure);
+
+      const onScroll = () => measure();
+      const onResize = () => measure();
+      el.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onResize);
+      cleanups.push(() => el.removeEventListener('scroll', onScroll));
+      cleanups.push(() => window.removeEventListener('resize', onResize));
+
+      const onDown = (e) => {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        // Native touch scroll handles finger pans; still capture pen / mouse drag
+        if (e.pointerType === 'touch') return;
+        dragRef.current = { active: true, moved: false, x: e.clientX, scroll: el.scrollLeft };
+        el.classList.add('is-dragging');
+        el.setPointerCapture(e.pointerId);
+        pauseUntil.current = Date.now() + 8000;
+      };
+      const onMove = (e) => {
+        if (!dragRef.current.active) return;
+        const dx = e.clientX - dragRef.current.x;
+        if (Math.abs(dx) > 6) {
+          dragRef.current.moved = true;
+          setDragging(true);
+        }
+        el.scrollLeft = dragRef.current.scroll - dx;
+      };
+      const onUp = () => {
+        dragRef.current.active = false;
+        el.classList.remove('is-dragging');
+        window.setTimeout(() => setDragging(false), 40);
+      };
+      el.addEventListener('pointerdown', onDown);
+      el.addEventListener('pointermove', onMove);
+      el.addEventListener('pointerup', onUp);
+      el.addEventListener('pointercancel', onUp);
+      cleanups.push(() => {
+        el.removeEventListener('pointerdown', onDown);
+        el.removeEventListener('pointermove', onMove);
+        el.removeEventListener('pointerup', onUp);
+        el.removeEventListener('pointercancel', onUp);
+      });
+
+      // Auto-scroll, unless the visitor prefers reduced motion.
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const tick = () => {
+          if (Date.now() < pauseUntil.current) return;
+          if (dragRef.current.active) return;
+          const first = el.querySelector('.svslide');
+          const second = el.querySelector('.svslide + .svslide');
+          if (!first) return;
+          const step = second
+            ? second.offsetLeft - first.offsetLeft
+            : first.getBoundingClientRect().width;
+          const max = el.scrollWidth - el.clientWidth;
+          const next = el.scrollLeft + step;
+          if (next >= max - 8) el.scrollTo({ left: 0, behavior: 'smooth' });
+          else el.scrollBy({ left: step, behavior: 'smooth' });
+        };
+        const intervalId = window.setInterval(tick, 4200);
+        cleanups.push(() => window.clearInterval(intervalId));
       }
-      el.scrollLeft = dragRef.current.scroll - dx;
-    };
-    const onUp = () => {
-      dragRef.current.active = false;
-      el.classList.remove('is-dragging');
-      window.setTimeout(() => setDragging(false), 40);
     };
 
-    el.addEventListener('pointerdown', onDown);
-    el.addEventListener('pointermove', onMove);
-    el.addEventListener('pointerup', onUp);
-    el.addEventListener('pointercancel', onUp);
+    // Gate initialization on the rail approaching the viewport; fall back to an
+    // immediate start where IntersectionObserver is unavailable.
+    let io;
+    if ('IntersectionObserver' in window) {
+      io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            start();
+            io.disconnect();
+          }
+        },
+        { rootMargin: '200px 0px' }
+      );
+      io.observe(el);
+    } else {
+      start();
+    }
 
     return () => {
-      el.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onResize);
-      el.removeEventListener('pointerdown', onDown);
-      el.removeEventListener('pointermove', onMove);
-      el.removeEventListener('pointerup', onUp);
-      el.removeEventListener('pointercancel', onUp);
+      if (io) io.disconnect();
+      if (rafId) cancelAnimationFrame(rafId);
+      cleanups.forEach((fn) => fn());
     };
-  }, [ref]);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return undefined;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
-
-    const tick = () => {
-      if (Date.now() < pauseUntil.current) return;
-      if (dragRef.current.active) return;
-      const first = el.querySelector('.svslide');
-      const second = el.querySelector('.svslide + .svslide');
-      if (!first) return;
-      const step = second
-        ? second.offsetLeft - first.offsetLeft
-        : first.getBoundingClientRect().width;
-      const max = el.scrollWidth - el.clientWidth;
-      const next = el.scrollLeft + step;
-      if (next >= max - 8) el.scrollTo({ left: 0, behavior: 'smooth' });
-      else el.scrollBy({ left: step, behavior: 'smooth' });
-    };
-
-    const id = window.setInterval(tick, 4200);
-    return () => window.clearInterval(id);
   }, [ref]);
 
   const onBarPointer = (e) => {

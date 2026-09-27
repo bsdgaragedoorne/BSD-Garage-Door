@@ -39,7 +39,7 @@ export default function HeroSlider() {
               <span>Garage Door Repair</span>
             </span>
             <span className="line">
-              <span className="accent">in Franklin</span>
+              <span className="accent">in Franklin, MA</span>
             </span>
           </h1>
           <p className="chero__sub">
