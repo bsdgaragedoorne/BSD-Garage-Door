@@ -3,10 +3,11 @@ import Reveal from './Reveal.jsx';
 import ReviewWidget from './ReviewWidget.jsx';
 import { biz, googleReviews, googleRating } from '../data/site.js';
 
-// Fallback dataset: the existing hardcoded testimonials, filtered exactly as
-// before. Rendered on the server/prerender so the section is never empty, and
-// kept as the fallback if the live Google fetch fails.
-const FALLBACK_REVIEWS = googleReviews.filter((review) => review.rating >= 5);
+// Fallback dataset: the existing hardcoded testimonials, filtered to 4★+ (the
+// same threshold applied to live reviews). Rendered on the server/prerender and
+// kept if the live Google fetch fails. If nothing here qualifies, the section
+// hides rather than rendering empty.
+const FALLBACK_REVIEWS = googleReviews.filter((review) => review.rating >= 4);
 
 /** First letters of the first two words of a name, e.g. "Rick Almeida" -> "RA". */
 function initialsFrom(name) {
@@ -98,7 +99,7 @@ export default function GoogleReviews() {
 
           const live = Array.isArray(data.reviews)
             ? data.reviews
-                .filter((review) => (review.rating ?? 0) >= 5)
+                .filter((review) => (review.rating ?? 0) >= 4)
                 .map((review) => ({
                   name: review.name,
                   photo: review.photo,
@@ -112,10 +113,11 @@ export default function GoogleReviews() {
                 }))
             : [];
 
-          if (live.length > 0) {
-            setReviews(live);
-            setIndex(0);
-          }
+          // A successful response is authoritative: adopt the live 4★+ set even
+          // when it is empty, so the section hides if Google has no qualifying
+          // reviews rather than showing stale fallback data.
+          setReviews(live);
+          setIndex(0);
           if (typeof data.rating === 'number') setRating(data.rating);
           if (typeof data.userRatingCount === 'number') setCount(data.userRatingCount);
         })
@@ -155,6 +157,10 @@ export default function GoogleReviews() {
   }, []);
 
   const total = reviews.length;
+  // Hide the entire testimonials section when no reviews qualify (4★+): no empty
+  // section, no fallback, no placeholder. (All hooks above run unconditionally.)
+  if (total === 0) return null;
+
   const visible = total
     ? [reviews[index % total], ...(total > 1 ? [reviews[(index + 1) % total]] : [])]
     : [];
