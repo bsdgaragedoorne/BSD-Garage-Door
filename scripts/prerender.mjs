@@ -5,12 +5,14 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 
-const { render, allRoutes } = await import(path.join(root, 'dist-ssr/entry-server.js'));
+// Import via a file:// URL so the absolute path works on Windows too (a bare
+// C:\… path is rejected by the ESM loader as an unknown "c:" URL scheme).
+const { render, allRoutes } = await import(pathToFileURL(path.join(root, 'dist-ssr/entry-server.js')).href);
 let template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
 
 /**

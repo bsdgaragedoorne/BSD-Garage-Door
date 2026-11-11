@@ -3,7 +3,7 @@ import Seo from '../components/Seo.jsx';
 import Reveal from '../components/Reveal.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import { Crumbs, HowACall } from '../components/Blocks.jsx';
-import { Check, Phone, Mail, Pin, Clock, Shield } from '../components/Icons.jsx';
+import { Check, Phone, Mail, Pin, Clock, Shield, Facebook, Instagram, Linkedin, Pinterest } from '../components/Icons.jsx';
 import { biz, addressOneLine, trustPoints } from '../data/site.js';
 import { breadcrumbSchema } from '../lib/schema.js';
 
@@ -257,6 +257,22 @@ export function Contact() {
               <strong>Location</strong>
               {addressOneLine}
             </span>
+          </a>
+        </div>
+
+        <div className="wrap cinfo__social">
+          <span className="cinfo__social-label">Follow us</span>
+          <a href={biz.social.facebook} target="_blank" rel="noreferrer" aria-label={`${biz.name} on Facebook`}>
+            <Facebook size={20} />
+          </a>
+          <a href={biz.social.instagram} target="_blank" rel="noreferrer" aria-label={`${biz.name} on Instagram`}>
+            <Instagram size={20} />
+          </a>
+          <a href={biz.social.linkedin} target="_blank" rel="noreferrer" aria-label={`${biz.name} on LinkedIn`}>
+            <Linkedin size={20} />
+          </a>
+          <a href={biz.social.pinterest} target="_blank" rel="noreferrer" aria-label={`${biz.name} on Pinterest`}>
+            <Pinterest size={20} />
           </a>
         </div>
       </section>

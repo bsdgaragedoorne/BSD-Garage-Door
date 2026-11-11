@@ -3465,6 +3465,38 @@ a.areacard {
   word-break: break-word;
 }
 
+.cinfo__social {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+}
+
+.cinfo__social-label {
+  margin-right: 0.25rem;
+  color: #111;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.cinfo__social a {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 1px solid #ececec;
+  background: #fff;
+  color: var(--text-body);
+  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cinfo__social a:hover {
+  border-color: #f0c8c8;
+  color: var(--accent);
+  box-shadow: 0 14px 30px -24px rgba(227, 6, 19, 0.6);
+}
+
 @media (min-width: 980px) {
   .cinfo__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));

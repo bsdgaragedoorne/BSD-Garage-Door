@@ -28,6 +28,12 @@ export const homeLocalBusinessSchema = {
     longitude: -71.414276,
   },
   hasMap: 'https://maps.app.goo.gl/dA7LLmLrqNsD9oiH7',
+  sameAs: [
+    'https://www.facebook.com/bsdgaragedoor/',
+    'https://www.linkedin.com/company/bsdgaragedoor/',
+    'https://www.pinterest.com/bsdgaragedoor/',
+    'https://www.instagram.com/bsdgaragedoor/',
+  ],
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',

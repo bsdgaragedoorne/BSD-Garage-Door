@@ -28,6 +28,12 @@ export const biz = {
   // Google Business Profile Place ID (Places API New). Drives the live reviews
   // fetched server-side by netlify/functions/reviews.js.
   placeId: 'ChIJb5IBMepv5IkRP8foasQrKQc',
+  social: {
+    facebook: 'https://www.facebook.com/bsdgaragedoor/',
+    linkedin: 'https://www.linkedin.com/company/bsdgaragedoor/',
+    pinterest: 'https://www.pinterest.com/bsdgaragedoor/',
+    instagram: 'https://www.instagram.com/bsdgaragedoor/',
+  },
   hours: 'Open 24/7',
   hoursShort: 'Open 24/7',
   hoursList: [

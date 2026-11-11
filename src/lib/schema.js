@@ -34,6 +34,7 @@ export function organizationSchema() {
         url: SITE_URL,
         logo: `${SITE_URL}/img/logo.png`,
         image: `${SITE_URL}/img/og-image.jpg`,
+        sameAs: Object.values(biz.social),
         telephone: biz.phoneRaw,
         email: biz.email,
         address: postalAddress,

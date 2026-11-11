@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { biz, services } from '../data/site.js';
-import { Phone, Mail, Pin, Clock, ArrowUpRight } from './Icons.jsx';
+import { Phone, Mail, Pin, Clock, ArrowUpRight, Facebook, Instagram, Linkedin, Pinterest } from './Icons.jsx';
 
 const featuredSlugs = [
   'springs-replacement',
@@ -55,6 +55,18 @@ export default function Footer() {
               </a>
               <a href={biz.mapUrl} target="_blank" rel="noreferrer" aria-label="Open shop location on the map">
                 <Pin size={15} />
+              </a>
+              <a href={biz.social.facebook} target="_blank" rel="noreferrer" aria-label={`${biz.name} on Facebook`}>
+                <Facebook size={15} />
+              </a>
+              <a href={biz.social.instagram} target="_blank" rel="noreferrer" aria-label={`${biz.name} on Instagram`}>
+                <Instagram size={15} />
+              </a>
+              <a href={biz.social.linkedin} target="_blank" rel="noreferrer" aria-label={`${biz.name} on LinkedIn`}>
+                <Linkedin size={15} />
+              </a>
+              <a href={biz.social.pinterest} target="_blank" rel="noreferrer" aria-label={`${biz.name} on Pinterest`}>
+                <Pinterest size={15} />
               </a>
             </div>
           </div>
