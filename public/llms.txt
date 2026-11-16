@@ -1,0 +1,13 @@
+# BSD Garage Door
+
+> Articles published by BSD Garage Door at https://bsdgaragedoorservices.com/.
+
+## Articles
+
+- [What Does Garage Door Weather Seal Replacement Cost?](https://bsdgaragedoorservices.com/blogs/garage-door-weather-seal-replacement-unknown/): A practical guide to garage door weather seal replacement cost, what drives prices, DIY thresholds, and how to get a written local estimate in Franklin, MA.
+- [Repair or Replace a Broken Garage Door Spring](https://bsdgaragedoorservices.com/blogs/repair-replace-broken-garage-door-spring/): This guide helps you decide whether to repair or replace a broken garage door spring, with clear signs, a decision guide, cost factors, and steps you can take safely at home.
+- [Is Garage Door Keypad Installation Worth It?](https://bsdgaragedoorservices.com/blogs/garage-door-keypad-installation-worth/): A garage door keypad gives keyless access and improves convenience and security. This guide compares keypad types, shows a 3-minute compatibility check, and helps you decide DIY or hire a pro.
+- [Fix or Replace a Faulty Garage Door Opener](https://bsdgaragedoorservices.com/blogs/fix-replace-faulty-garage-door-opener/): A clear, step-by-step guide to decide whether to repair or replace your garage door opener, with realistic cost ranges, fast inspection checks, and a plan for the service visit.
+- [When to Call Emergency Garage Door Repair Services](https://bsdgaragedoorservices.com/blogs/emergency-garage-door-repair/): Learn the clear warning signs that mean you should call emergency garage door repair now, what to do safely while you wait, and how to prioritize repairs.
+
+<!-- gs-tools:llms -->
